@@ -157,7 +157,7 @@ nav a:hover i {
   padding: 10px;
   border-radius: 8px;
 }
-.year-block h3 {
+.year-block  {
   text-align: center;
 }
 .year-block li {
@@ -196,17 +196,11 @@ nav a:hover i {
 
 .filters-title {
   font-family: 'Segoe UI', sans-serif;
-  font-weight: normal;
+  font-weight: bold;
   color: #007b7f;
   text-align: center;
 }
-.filters button:not(.reset-btn) {
-  background-color: #007b7f;
-  color: #fdfdf0;
-}
-.filters button:not(.reset-btn):hover {
-  background-color: #006c70;
-}
+
 .filters input[type="text"] {
   background-color: #007b7f;
   color: #fdfdf0;
