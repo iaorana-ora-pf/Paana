@@ -1,0 +1,94 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* === HEADER GLOBAL === */
+header {
+  background-color: #007b7f;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #fdfdf0;
+}
+
+/* === FOOTER === */
+.footer {
+  text-align: center !important;
+  padding: 20px;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #666666;
+}
+
+.footer p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* === LOGO & NOM === */
+.logo {
+  color: #fdfdf0;
+}
+
+.logo .brand {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.logo .trait {
+  height: 12px;
+  background-color: #fee58c;
+  width: 100px;
+  margin: 10px 0;
+}
+
+/* === NAVIGATION === */
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: #fdfdf0;
+  color: #271923;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #fee58c;
+  transform: scale(1.05);
+}
+
+nav a i {
+  color: #271923;
+  font-weight: normal;
+}
+
+nav a:hover i {
+  color: #000;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+}
