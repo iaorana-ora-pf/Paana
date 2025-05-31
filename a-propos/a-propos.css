@@ -1,5 +1,9 @@
 body {
   font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9; 
+  margin: 0; 
+  height: 100vh; 
+  overflow: hidden;
 }
 
 /* === HEADER GLOBAL === */
@@ -91,4 +95,3 @@ nav a:hover i {
     justify-content: flex-start;
     margin-top: 1rem;
   }
-}
