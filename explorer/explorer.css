@@ -184,23 +184,19 @@ nav a:hover i {
   height:10px;
   border-radius:2px;
 }
-.filters button,
-.filters input[type="text"] {
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 6px;
-  margin-top: 10px;
-}
-
 .filters-title {
   font-family: 'Segoe UI', sans-serif;
   font-weight: bold;
   color: #007b7f;
   text-align: center;
 }
-
+.filter-label {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: #007b7f;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
 .filters input[type="text"] {
   background-color: #007b7f;
   color: #fdfdf0;
