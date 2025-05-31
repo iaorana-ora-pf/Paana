@@ -1,0 +1,112 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9; 
+  margin: 0; 
+  height: 100vh; 
+  overflow: hidden;
+}
+.layout-3col {
+  display: grid;
+  grid-template-columns: 300px 1fr 400px;
+  gap: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.left-col, .center-col, .right-col {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+.left-col { background: #f0f0f0; }
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dropdown-checkbox div {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+  max-height: 120px;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+.dropdown-checkbox button {
+  padding: 8px;
+  font-size: 1rem;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #fdfdf0;
+  background-color: #007b7f;
+  border-radius: 5px;
+  border: none;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.year-block {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 8px;
+}
+.year-block h3 {
+  text-align: center;
+}
+.year-block li {
+  background: #e0e0e0;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.year-block li:hover {
+  background: #dce775;
+}
+.event-details {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+.color-box {
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:2px;
+}
+.filters button,
+.filters input[type="text"] {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+.filters button:not(.reset-btn) {
+  background-color: #007b7f;
+  color: #fdfdf0;
+}
+.filters button:not(.reset-btn):hover {
+  background-color: #006c70;
+}
+.filters input[type="text"] {
+  background-color: #007b7f;
+  color: #fdfdf0;
+}
+.filters input[type="text"]::placeholder {
+  color: #fdfdf0;
+  opacity: 0.7;
+}
+.filters .reset-btn {
+  background-color: #fff3b0;
+  color: #00587a;
+}
