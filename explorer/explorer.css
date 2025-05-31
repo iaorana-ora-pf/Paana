@@ -182,6 +182,13 @@ nav a:hover i {
   border-radius: 6px;
   margin-top: 10px;
 }
+
+.filters-title {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: normal;
+  color: #007b7f;
+  text-align: center;
+}
 .filters button:not(.reset-btn) {
   background-color: #007b7f;
   color: #fdfdf0;
