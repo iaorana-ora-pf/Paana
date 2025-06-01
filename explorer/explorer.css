@@ -248,14 +248,14 @@ nav a:hover i {
   margin-bottom: 8px;
 }
 .filter-badge {
-  background-color: #007b7f;
-  color: #fff;
-  padding: 5px 10px;
-  border-radius: 12px;
-  font-size: 0.9rem;
-  display: flex;
-   font-family: 'Segoe UI', sans-serif;
+  display: inline-flex;
   align-items: center;
+  background-color: #007b7f;
+  color: #fdfdf0;
+  padding: 5px 10px;
+  margin: 5px 5px 0 0;
+  border-radius: 20px;
+  font-size: 0.9rem;
 }
 
 .filter-badge button {
@@ -266,7 +266,11 @@ nav a:hover i {
   cursor: pointer;
   font-weight: bold;
 }
-
+.filter-badge .remove-badge {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
 .remove-badge {
   margin-left: 8px;
   cursor: pointer;
