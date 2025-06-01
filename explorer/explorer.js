@@ -1,11 +1,11 @@
-let eventsData = {};
+let events = {};
 let currentEvents = [];
 let currentIndex = -1;
 
 fetch('explorer.json')
   .then(response => response.json())
   .then(data => {
-    eventsData = data;
+    events = data;
     initDropdowns();
     updateTimeline();
   })
