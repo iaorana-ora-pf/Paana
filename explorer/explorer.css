@@ -237,25 +237,12 @@ nav a:hover i {
  margin-bottom: 15px;
  padding: 10px 0;
  }
-.active-filters-section {
-  margin-top: 20px;
-  margin-bottom: 10px;
-}
+
 .filters-active-title {
   font-weight: bold;
   font-family: 'Segoe UI', sans-serif;
   color: #007b7f;
   margin-bottom: 8px;
-}
-.filter-badge {
-  display: inline-flex;
-  align-items: center;
-  background-color: #007b7f;
-  color: #fdfdf0;
-  padding: 5px 10px;
-  margin: 5px 5px 0 0;
-  border-radius: 20px;
-  font-size: 0.9rem;
 }
 
 .filter-badge button {
@@ -263,11 +250,6 @@ nav a:hover i {
   border: none;
   color: #fdfdf0;
   margin-left: 6px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.filter-badge .remove-badge {
-  margin-left: 8px;
   cursor: pointer;
   font-weight: bold;
 }
