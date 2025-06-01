@@ -37,6 +37,14 @@ function getFilters() {
 function updateTimeline() {
   const container = document.getElementById("timeline");
   const filters = getFilters();
+  document.getElementById("categoryCount").textContent =
+  `(${document.querySelectorAll(".category-filter:checked").length})`;
+
+document.getElementById("subjectCount").textContent =
+  `(${document.querySelectorAll(".subject-filter:checked").length})`;
+
+document.getElementById("keywordCount").textContent =
+  `(${document.querySelectorAll(".keyword-filter:checked").length})`;
   container.innerHTML = "";
 
   for (const year in events) {
