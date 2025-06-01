@@ -11,27 +11,76 @@
       "description": "Fin de la monarchie absolue"
     }
   ],
+  "1791": [
+    {
+      "name": "Constitution française",
+      "category": "Gouvernance",
+      "subject": "lois",
+      "keywords": [
+        "constitution",
+        "monarchie"
+      ],
+      "description": "Première constitution française"
+    }
+  ],
+  "1848": [
+    {
+      "name": "Abolition de l'esclavage en France",
+      "category": "Gouvernance",
+      "subject": "société",
+      "keywords": [
+        "droits",
+        "liberté"
+      ],
+      "description": "Fin de l'esclavage dans les colonies françaises"
+    }
+  ],
+  "1870": [
+    {
+      "name": "Proclamation de la IIIe République",
+      "category": "Gouvernance",
+      "subject": "politique",
+      "keywords": [
+        "république",
+        "France"
+      ],
+      "description": "Fin du Second Empire"
+    }
+  ],
   "1914": [
     {
-      "name": "Première Guerre mondiale",
+      "name": "Début de la Première Guerre mondiale",
       "category": "Protection",
       "subject": "guerre",
       "keywords": [
-        "armée",
-        "conflit"
+        "conflit",
+        "armée"
       ],
-      "description": "Début de la grande guerre"
+      "description": "Déclenchement de la Grande Guerre"
     }
   ],
   "1918": [
     {
-      "name": "Grippe espagnole",
+      "name": "Armistice de la Première Guerre mondiale",
       "category": "Protection",
-      "subject": "santé",
+      "subject": "guerre",
       "keywords": [
-        "pandémie"
+        "victoire",
+        "armistice"
       ],
-      "description": "Grande pandémie mondiale"
+      "description": "Fin des combats en Europe"
+    }
+  ],
+  "1939": [
+    {
+      "name": "Début de la Seconde Guerre mondiale",
+      "category": "Protection",
+      "subject": "guerre",
+      "keywords": [
+        "conflit",
+        "armée"
+      ],
+      "description": "Invasion de la Pologne"
     }
   ],
   "1945": [
@@ -42,12 +91,12 @@
       "keywords": [
         "victoire"
       ],
-      "description": "Victoire des Alliés"
+      "description": "Capitulation de l'Allemagne et du Japon"
     }
   ],
   "1948": [
     {
-      "name": "Déclaration des droits",
+      "name": "Déclaration universelle des droits de l'homme",
       "category": "Gouvernance",
       "subject": "société",
       "keywords": [
@@ -57,39 +106,135 @@
       "description": "Texte fondateur des droits humains"
     }
   ],
+  "1958": [
+    {
+      "name": "Naissance de la Ve République",
+      "category": "Gouvernance",
+      "subject": "politique",
+      "keywords": [
+        "constitution",
+        "De Gaulle"
+      ],
+      "description": "Nouvelle constitution adoptée"
+    }
+  ],
+  "1961": [
+    {
+      "name": "Premier vol spatial habité",
+      "category": "Innovation",
+      "subject": "science",
+      "keywords": [
+        "espace",
+        "Gagarine"
+      ],
+      "description": "Yuri Gagarine premier homme dans l'espace"
+    }
+  ],
   "1969": [
     {
       "name": "Homme sur la Lune",
-      "category": "Données",
+      "category": "Innovation",
       "subject": "science",
       "keywords": [
         "NASA",
-        "Lune"
+        "Apollo 11"
       ],
-      "description": "Mission Apollo 11"
+      "description": "Neil Armstrong marche sur la Lune"
+    }
+  ],
+  "1981": [
+    {
+      "name": "Abolition de la peine de mort en France",
+      "category": "Gouvernance",
+      "subject": "lois",
+      "keywords": [
+        "justice",
+        "droits"
+      ],
+      "description": "Suppression de la peine capitale"
+    }
+  ],
+  "1989": [
+    {
+      "name": "Chute du mur de Berlin",
+      "category": "Gouvernance",
+      "subject": "géopolitique",
+      "keywords": [
+        "Berlin",
+        "réunification"
+      ],
+      "description": "Fin symbolique de la guerre froide"
+    }
+  ],
+  "1991": [
+    {
+      "name": "Dissolution de l'URSS",
+      "category": "Gouvernance",
+      "subject": "géopolitique",
+      "keywords": [
+        "URSS",
+        "fin"
+      ],
+      "description": "Fin de l'Union soviétique"
     }
   ],
   "2001": [
     {
-      "name": "Attentats 11 septembre",
+      "name": "Attentats du 11 septembre",
       "category": "Protection",
       "subject": "sécurité",
       "keywords": [
         "terrorisme"
       ],
-      "description": "Attaques terroristes aux USA"
+      "description": "Attaques aux États-Unis"
+    }
+  ],
+  "2008": [
+    {
+      "name": "Crise financière mondiale",
+      "category": "Données",
+      "subject": "économie",
+      "keywords": [
+        "banques",
+        "bourse"
+      ],
+      "description": "Effondrement des marchés financiers"
+    }
+  ],
+  "2015": [
+    {
+      "name": "Accords de Paris",
+      "category": "Protection",
+      "subject": "écologie",
+      "keywords": [
+        "climat",
+        "COP21"
+      ],
+      "description": "Engagement mondial contre le réchauffement"
+    }
+  ],
+  "2019": [
+    {
+      "name": "Grève mondiale pour le climat",
+      "category": "Protection",
+      "subject": "écologie",
+      "keywords": [
+        "Greta Thunberg",
+        "climat"
+      ],
+      "description": "Mobilisation massive pour la planète"
     }
   ],
   "2020": [
     {
-      "name": "COVID-19",
+      "name": "Pandémie de COVID-19",
       "category": "Protection",
       "subject": "santé",
       "keywords": [
         "virus",
         "pandémie"
       ],
-      "description": "Pandémie mondiale"
+      "description": "Crise sanitaire mondiale"
     }
   ]
 }
