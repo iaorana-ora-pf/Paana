@@ -2,7 +2,7 @@ let events = {};
 let currentEvents = [];
 let currentIndex = -1;
 
-fetch('explorer.json')
+fetch('./explorer.json')
   .then(response => response.json())
   .then(data => {
     events = data;
