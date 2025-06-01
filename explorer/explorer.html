@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer 3 - Paana</title>
+  <title>Explorer 4 - Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -33,46 +33,39 @@
   <div class="layout-3col">
     <div class="left-col">
       <div class="filters">
-        <h3 class="filters-title">Trier les événements par :</h3>
-        <div class="dropdown-checkbox">
-          <p class="filter-label">
-            Catégorie 
-            <a href="ton-fichier.pdf" target="_blank" class="info-icon" data-tooltip="En savoir plus">ℹ️</a>
-           </p>
-          <div id="categoryDropdown">
-    </div>
-        
+     <h3 class="filters-title">Trier les événements par :</h3>
+
+      <!-- Catégories -->
+      <div class="dropdown-checkbox">
+        <p class="filter-label">
+          Catégorie
+          <a href="ton-fichier.pdf" target="_blank" class="info-icon">ℹ️</a>
+        </p>
+        <div id="categoryDropdown"></div>
+      </div>
+
+      <!-- Sujets -->
+      <div class="dropdown-checkbox">
+        <p class="filter-label">Sujet</p>
+        <div id="subjectDropdown"></div>
+      </div>
+
+      <!-- Mots-clés -->
+      <div class="dropdown-checkbox">
+        <p class="filter-label">
+          Mot-clé
+          <span class="info-icon">
+            <sup>ℹ️</sup>
+            <span class="tooltip">
+              Les mots-clés sont issus du thésaurus
+              <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #ffd; text-decoration: underline;">DeCS</a>.
+            </span>
+          </span>
+        </p>
+        <div id="keywordDropdown"></div>
+      </div>
       
       
-    </div>
-        <div class="dropdown-checkbox">
-          <p class="filter-label">Sujet </p>
-          <div id="subjectDropdown">
-      
-      
-    </div>
-        
-      
-      
-    </div>
-        <div class="dropdown-checkbox">
-         <p class="filter-label">Mot-clé
-  <span class="info-icon">
-    <sup>ℹ️</sup>
-    <span class="tooltip">
-      Les mots-clés sont issus du thésaurus
-      <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #ffd; text-decoration: underline;">DeCS</a>.
-    </span>
-  </span>
-</p>
-          <div id="keywordDropdown">
-      
-      
-    </div>
-        
-      
-      
-    </div>
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
         <button class="reset-btn" onclick="resetFilters()">Réinitialiser</button>
       
