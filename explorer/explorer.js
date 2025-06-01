@@ -69,7 +69,6 @@ function updateTimeline() {
   }
    updateDependentFilters();
   renderActiveFilters();
-  updateActiveFilterBadges();
 }
 
 function showDetails(ev, year) {
@@ -188,33 +187,6 @@ function updateDependentFilters() {
   });
 }
 
-function updateActiveBadges() {
-  const container = document.getElementById("activeFilters");
-  container.innerHTML = "";
-  const filters = getFilters();
-
-  const createBadge = (label, type) => {
-    const badge = document.createElement("div");
-    badge.className = "filter-badge";
-    badge.innerText = label;
-    const btn = document.createElement("button");
-    btn.innerText = "✖";
-    btn.onclick = () => {
-      // Décoche la case liée
-      const selector = `.${type}-filter[value="${label}"]`;
-      const checkbox = document.querySelector(selector);
-      if (checkbox) checkbox.checked = false;
-      updateTimeline(); // recharge frise
-      updateDependentFilters(); // recharge filtres
-    };
-    badge.appendChild(btn);
-    return badge;
-  };
-
-  filters.categories.forEach(cat => container.appendChild(createBadge(cat, "category")));
-  filters.subjects.forEach(sub => container.appendChild(createBadge(sub, "subject")));
-  filters.keywords.forEach(kw => container.appendChild(createBadge(kw, "keyword")));
-}
 
 function renderActiveFilters() {
   const filters = getFilters();
