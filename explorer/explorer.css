@@ -236,7 +236,8 @@ nav a:hover i {
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 15px;
-}
+ padding: 10px 0;
+ }
 
 .filter-badge {
   background-color: #007b7f;
