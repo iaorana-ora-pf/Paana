@@ -33,37 +33,45 @@
   <div class="layout-3col">
     <div class="left-col">
       <div class="filters">
-     <h3 class="filters-title">Trier les événements par :</h3>
+  <h3 class="filters-title">Trier les événements par :</h3>
 
-      <!-- Catégories -->
-      <div class="dropdown-checkbox">
-        <p class="filter-label">
-          Catégorie
-          <a href="ton-fichier.pdf" target="_blank" class="info-icon">ℹ️</a>
-        </p>
-        <div id="categoryDropdown"></div>
-      </div>
+  <!-- Catégories avec lien PDF -->
+  <div class="dropdown-checkbox">
+    <p class="filter-label">
+      Catégorie
+      <span class="info-icon">
+        <sup>ℹ️</sup>
+        <span class="tooltip">
+          Voir la classification complète dans le PDF (à venir).
+        </span>
+      </span>
+    </p>
+    <div id="categoryDropdown"></div>
+  </div>
 
-      <!-- Sujets -->
-      <div class="dropdown-checkbox">
-        <p class="filter-label">Sujet</p>
-        <div id="subjectDropdown"></div>
-      </div>
+  <!-- Sujets avec info simple -->
+  <div class="dropdown-checkbox">
+    <p class="filter-label">
+      Sujet
+    </p>
+    <div id="subjectDropdown"></div>
+  </div>
 
-      <!-- Mots-clés -->
-      <div class="dropdown-checkbox">
-        <p class="filter-label">
-          Mot-clé
-          <span class="info-icon">
-            <sup>ℹ️</sup>
-            <span class="tooltip">
-              Les mots-clés sont issus du thésaurus
-              <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #ffd; text-decoration: underline;">DeCS</a>.
-            </span>
-          </span>
-        </p>
-        <div id="keywordDropdown"></div>
-      </div>
+  <!-- Mots-clés avec lien DeCS -->
+  <div class="dropdown-checkbox">
+    <p class="filter-label">
+      Mot-clé
+      <span class="info-icon">
+        <sup>ℹ️</sup>
+        <span class="tooltip">
+          Les mots-clés sont issus du thésaurus
+          <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #ffd; text-decoration: underline;">DeCS</a>.
+        </span>
+      </span>
+    </p>
+    <div id="keywordDropdown"></div>
+  </div>
+</div>
       
       
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
