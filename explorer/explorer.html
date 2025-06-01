@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer 5 - Paana</title>
+  <title>Explorer  - Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -58,6 +58,10 @@
         </div>
 
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
+        <div id="active-filters-section" class="active-filters-section" style="display:none;">
+          <p class="filters-active-title">Les filtres sélectionnés :</p>
+          <div id="active-filters" class="active-filters"></div>
+        </div>
         <button class="reset-btn" onclick="resetFilters()">Réinitialiser</button>
       </div>
     </div>
