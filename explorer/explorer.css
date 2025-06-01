@@ -262,6 +262,25 @@ nav a:hover i {
 .remove-badge:hover {
   color: #ffcccc;
 }
+
+.filter-badge {
+  display: inline-block;
+  background-color: #007b7f;
+  color: #fdfdf0;
+  border-radius: 12px;
+  padding: 6px 10px;
+  margin: 4px 4px 8px 0;
+  font-size: 0.85em;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.filter-badge .remove-badge {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #fdfdf0;
+  font-weight: bold;
+}
 /* Zone RECHERCHE */
 #searchInput {
   background-color: #ffffff;
