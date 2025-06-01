@@ -139,27 +139,46 @@ function initDropdowns() {
 
 function updateDependentFilters() {
   const checkedCategories = Array.from(document.querySelectorAll(".category-filter:checked")).map(cb => cb.value);
-  const allSubjects = new Set();
-  const allKeywords = new Set();
+  const checkedKeywords = Array.from(document.querySelectorAll(".keyword-filter:checked")).map(cb => cb.value);
+  const checkedSubjects = Array.from(document.querySelectorAll(".subject-filter:checked")).map(cb => cb.value);
 
-  if (checkedCategories.length === 0) {
-    // Si rien n'est coché, tout reste noir
-    document.querySelectorAll(".subject-filter, .keyword-filter").forEach(el => el.style.color = "black");
+  const visibleSubjects = new Set();
+  const visibleKeywords = new Set();
+  const visibleCategories = new Set();
+
+  const noFilter = checkedCategories.length === 0 && checkedKeywords.length === 0 && checkedSubjects.length === 0;
+
+  // Si aucun filtre sélectionné, on reset toutes les couleurs à noir
+  if (noFilter) {
+    document.querySelectorAll(".category-filter, .subject-filter, .keyword-filter").forEach(cb => {
+      cb.parentElement.style.color = "black";
+    });
     return;
   }
 
+  // Parcours des événements pour récupérer les éléments liés aux filtres actifs
   Object.values(events).flat().forEach(event => {
-    if (checkedCategories.includes(event.category)) {
-      allSubjects.add(event.subject);
-      event.keywords.forEach(k => allKeywords.add(k));
+    const matchCategory = checkedCategories.length === 0 || checkedCategories.includes(event.category);
+    const matchKeyword = checkedKeywords.length === 0 || event.keywords.some(k => checkedKeywords.includes(k));
+    const matchSubject = checkedSubjects.length === 0 || checkedSubjects.includes(event.subject);
+
+    if (matchCategory && matchKeyword && matchSubject) {
+      visibleSubjects.add(event.subject);
+      event.keywords.forEach(k => visibleKeywords.add(k));
+      visibleCategories.add(event.category);
     }
   });
 
+  // Mise à jour des couleurs des filtres (noirs si pertinents, gris sinon)
   document.querySelectorAll(".subject-filter").forEach(cb => {
-    cb.parentElement.style.color = allSubjects.has(cb.value) ? "black" : "#999";
+    cb.parentElement.style.color = visibleSubjects.has(cb.value) ? "black" : "#999";
   });
 
   document.querySelectorAll(".keyword-filter").forEach(cb => {
-    cb.parentElement.style.color = allKeywords.has(cb.value) ? "black" : "#999";
+    cb.parentElement.style.color = visibleKeywords.has(cb.value) ? "black" : "#999";
+  });
+
+  document.querySelectorAll(".category-filter").forEach(cb => {
+    cb.parentElement.style.color = visibleCategories.has(cb.value) ? "black" : "#999";
   });
 }
