@@ -65,6 +65,7 @@ function updateTimeline() {
       container.appendChild(block);
     }
   }
+   updateDependentFilters();
 }
 
 function showDetails(ev, year) {
@@ -120,11 +121,39 @@ function initDropdowns() {
   });
 
   document.getElementById("subjectDropdown").innerHTML =
-    Array.from(subjects).sort().map(s => `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline()"> ${s}</label><br>`).join("");
+    Array.from(subjects).sort().map(s => `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters()">
 
   document.getElementById("keywordDropdown").innerHTML =
-    Array.from(keywords).sort().map(k => `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline()"> ${k}</label><br>`).join("");
+    Array.from(keywords).sort().map(k => `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters()">
 
   document.getElementById("categoryDropdown").innerHTML =
-    Array.from(categories).sort().map(c => `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline()"> ${c}</label><br>`).join("");
+    Array.from(categories).sort().map(c => `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters()">
+}
+
+
+function updateDependentFilters() {
+  const checkedCategories = Array.from(document.querySelectorAll(".category-filter:checked")).map(cb => cb.value);
+  const allSubjects = new Set();
+  const allKeywords = new Set();
+
+  if (checkedCategories.length === 0) {
+    // Si rien n'est coché, tout reste noir
+    document.querySelectorAll(".subject-filter, .keyword-filter").forEach(el => el.style.color = "black");
+    return;
+  }
+
+  Object.values(events).flat().forEach(event => {
+    if (checkedCategories.includes(event.category)) {
+      allSubjects.add(event.subject);
+      event.keywords.forEach(k => allKeywords.add(k));
+    }
+  });
+
+  document.querySelectorAll(".subject-filter").forEach(cb => {
+    cb.parentElement.style.color = allSubjects.has(cb.value) ? "black" : "#999";
+  });
+
+  document.querySelectorAll(".keyword-filter").forEach(cb => {
+    cb.parentElement.style.color = allKeywords.has(cb.value) ? "black" : "#999";
+  });
 }
