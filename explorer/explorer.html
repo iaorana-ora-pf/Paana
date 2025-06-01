@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer 3 - Paana</title>
+  <title>Explorer - Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
-  
-  <body>
+<body>
 
   <header>
     <div class="logo">
@@ -33,85 +32,61 @@
   <div class="layout-3col">
     <div class="left-col">
       <div class="filters">
-  <h3 class="filters-title">Trier les événements par :</h3>
+        <h3 class="filters-title">Trier les événements par :</h3>
 
-  <!-- Catégories avec lien PDF -->
-  <div class="dropdown-checkbox">
-     <p class="filter-label">
-    Catégorie
-    <sup>
-      <a href="ton-fichier.pdf" target="_blank" style="text-decoration: none; color: #007b7f;">ℹ️</a>
-    </sup>
-  </p>
-  <div id="categoryDropdown"></div>
-</div>
+        <div class="dropdown-checkbox">
+          <p class="filter-label">
+            Catégorie
+            <sup><a href="ton-fichier.pdf" target="_blank" style="text-decoration: none; color: #007b7f;">ℹ️</a></sup>
+          </p>
+          <div id="categoryDropdown"></div>
+        </div>
 
-  <!-- Sujets avec info simple -->
-  <div class="dropdown-checkbox">
-    <p class="filter-label">
-      Sujet
-    </p>
-    <div id="subjectDropdown"></div>
-  </div>
+        <div class="dropdown-checkbox">
+          <p class="filter-label">Sujet</p>
+          <div id="subjectDropdown"></div>
+        </div>
 
-  <!-- Mots-clés avec lien DeCS -->
-  <div class="dropdown-checkbox">
-    <p class="filter-label">
-    Mot-clé (issu du DeCS)
-     <sup>
-     <a href="https://decs.bvsalud.org/fr/" target="_blank" style="text-decoration: none; color: #007b7f;">ℹ️</a>
-    </sup>
-     </p>
-  <div id="keywordDropdown"></div>
-      </div>
-</div>
-      
-      
+        <div class="dropdown-checkbox">
+          <p class="filter-label">
+            Mot-clé (issu du DeCS)
+            <sup><a href="https://decs.bvsalud.org/fr/" target="_blank" style="text-decoration: none; color: #007b7f;">ℹ️</a></sup>
+          </p>
+          <div id="keywordDropdown"></div>
+        </div>
+
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
         <button class="reset-btn" onclick="resetFilters()">Réinitialiser</button>
-      
-      
-      
-    </div>
+      </div>
     </div>
 
     <div class="center-col">
-      <div class="timeline" id="timeline">
-      
-      
-    </div>
+      <div class="timeline" id="timeline"></div>
     </div>
 
     <div class="right-col">
-      
-    <div class="event-details" id="eventDetails">
-      <h2>Détails</h2>
-      <p><strong>Titre :</strong> <span id="detail-title">Sélectionnez un événement</span></p>
-      <p><strong>Année :</strong> <span id="detail-year"></span></p>
-      <p><strong>Catégorie :</strong> <span id="detail-category"></span></p>
-      <p><strong>Sujet :</strong> <span id="detail-subject"></span></p>
-      <p><strong>Mots-clés :</strong> <span id="detail-keywords"></span></p>
-      <p><strong>Description :</strong> <span id="detail-description"></span></p>
-      
-    <p><strong>Sources :</strong> <span id="detail-sources">N/A</span></p>
-    <p><strong>Pièces jointes :</strong> <span id="detail-files">N/A</span></p>
-    <div style="margin-top: 10px;">
-            <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
-        <button onclick="navigateEvent(1)">Événement suivant ➡</button>
-      
-      
-      
-    </div>
-    
-        
+      <div class="event-details" id="eventDetails">
+        <h2>Détails</h2>
+        <p><strong>Titre :</strong> <span id="detail-title">Sélectionnez un événement</span></p>
+        <p><strong>Année :</strong> <span id="detail-year"></span></p>
+        <p><strong>Catégorie :</strong> <span id="detail-category"></span></p>
+        <p><strong>Sujet :</strong> <span id="detail-subject"></span></p>
+        <p><strong>Mots-clés :</strong> <span id="detail-keywords"></span></p>
+        <p><strong>Description :</strong> <span id="detail-description"></span></p>
+        <p><strong>Sources :</strong> <span id="detail-sources">N/A</span></p>
+        <p><strong>Pièces jointes :</strong> <span id="detail-files">N/A</span></p>
+        <div style="margin-top: 10px;">
+          <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
+          <button onclick="navigateEvent(1)">Événement suivant ➡</button>
+        </div>
+      </div>
     </div>
   </div>
 
-
-<script src="explorer.js"></script>
-</body>
   <footer class="footer">
-  <p>© 2025 Emmanuelle RUPP-TERRIS.<br>Tous droits réservés. Reproduction interdite sans autorisation.</p>
+    <p>© 2025 Emmanuelle RUPP-TERRIS.<br>Tous droits réservés. Reproduction interdite sans autorisation.</p>
   </footer>
-  </body>
+
+  <script src="explorer.js"></script>
+</body>
 </html>
