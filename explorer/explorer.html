@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer - Paana</title>
+  <title>Explorer 2 - Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -35,10 +35,10 @@
       <div class="filters">
         <h3 class="filters-title">Trier les événements par :</h3>
         <div class="dropdown-checkbox">
-          <p class="filter-label">Catégorie 
-            <a href="ton-document.pdf" target="_blank" class="info-icon" title="Voir document">
-            <sup>🛈</sup>
-            </a>
+          <p class="filter-label">
+            Catégorie 
+            <a href="ton-fichier.pdf" target="_blank" class="info-icon" data-tooltip="Voir document PDF">ℹ️</a>
+</p>
            </p>
           <div id="categoryDropdown">
     </div>
@@ -47,7 +47,7 @@
       
     </div>
         <div class="dropdown-checkbox">
-          <p class="filter-label">Sujet(s) : </p>
+          <p class="filter-label">Sujet </p>
           <div id="subjectDropdown">
       
       
@@ -57,15 +57,16 @@
       
     </div>
         <div class="dropdown-checkbox">
-          <p class="filter-label">Mot(s)-clés 
+          <p class="filter-label">Mot-clé
             <span class="info-icon" >
               <sup onclick="showTooltip(this)">🛈</sup>
               <span class="tooltip">
               Les mots-clés sont issus du thésaurus 
-              <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #fff; text-decoration: underline;">DeCS</a>.
+             <a href="https://decs.bvsalud.org/fr/" target="_blank" class="info-icon" data-tooltip="Les mots-clés sont issus du thésaurus DeCS">ℹ️</a>
+
               </span>
             </span> 
-            : </p>
+            </p>
           <div id="keywordDropdown">
       
       
