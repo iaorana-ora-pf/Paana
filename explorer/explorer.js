@@ -22,6 +22,7 @@ function resetFilters() {
   document.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
   document.getElementById("searchInput").value = "";
   updateTimeline();
+  renderActiveFilters();
 }
 
 function getFilters() {
@@ -66,6 +67,7 @@ function updateTimeline() {
     }
   }
    updateDependentFilters();
+  renderActiveFilters();
 }
 
 function showDetails(ev, year) {
@@ -122,17 +124,17 @@ function initDropdowns() {
 
 document.getElementById("subjectDropdown").innerHTML =
     Array.from(subjects).sort().map(s => `
-      <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters()"> ${s}</label><br>
+      <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${s}</label><br>
     `).join("");
 
   document.getElementById("keywordDropdown").innerHTML =
     Array.from(keywords).sort().map(k => `
-      <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters()"> ${k}</label><br>
+      <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${k}</label><br>
     `).join("");
 
   document.getElementById("categoryDropdown").innerHTML =
     Array.from(categories).sort().map(c => `
-      <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters()"> ${c}</label><br>
+      <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${c}</label><br>
     `).join("");
 }
 
@@ -180,4 +182,52 @@ function updateDependentFilters() {
   document.querySelectorAll(".category-filter").forEach(cb => {
     cb.parentElement.style.color = visibleCategories.has(cb.value) ? "black" : "#999";
   });
+}
+
+function updateActiveBadges() {
+  const container = document.getElementById("activeFilters");
+  container.innerHTML = "";
+  const filters = getFilters();
+
+  const createBadge = (label, type) => {
+    const badge = document.createElement("div");
+    badge.className = "filter-badge";
+    badge.innerText = label;
+    const btn = document.createElement("button");
+    btn.innerText = "✖";
+    btn.onclick = () => {
+      // Décoche la case liée
+      const selector = `.${type}-filter[value="${label}"]`;
+      const checkbox = document.querySelector(selector);
+      if (checkbox) checkbox.checked = false;
+      updateTimeline(); // recharge frise
+      updateDependentFilters(); // recharge filtres
+    };
+    badge.appendChild(btn);
+    return badge;
+  };
+
+  filters.categories.forEach(cat => container.appendChild(createBadge(cat, "category")));
+  filters.subjects.forEach(sub => container.appendChild(createBadge(sub, "subject")));
+  filters.keywords.forEach(kw => container.appendChild(createBadge(kw, "keyword")));
+}
+
+function renderActiveFilters() {
+  const filters = getFilters();
+  const container = document.getElementById("activeFilters");
+  container.innerHTML = ""; // Réinitialise les badges
+
+  const makeBadge = (label, value) =>
+    `<span class="filter-badge">${label} : ${value}</span>`;
+
+  const badges = [];
+
+  filters.categories.forEach(val => badges.push(makeBadge("Catégorie", val)));
+  filters.subjects.forEach(val => badges.push(makeBadge("Sujet", val)));
+  filters.keywords.forEach(val => badges.push(makeBadge("Mot-clé", val)));
+  if (filters.search) {
+    badges.push(makeBadge("Recherche", filters.search));
+  }
+
+  container.innerHTML = badges.join(" ");
 }
