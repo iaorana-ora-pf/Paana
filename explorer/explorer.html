@@ -35,7 +35,12 @@
       <div class="filters">
         <h3 class="filters-title">Trier les événements par :</h3>
         <div class="dropdown-checkbox">
-          <p class="filter-label">Catégorie(s) : <span id="categoryCount">(0)</span></p>
+          <p class="filter-label">Catégorie(s) 
+            <a href="ton-document.pdf" target="_blank" class="info-icon" title="Voir document">
+            <sup>🛈</sup>
+            </a>
+            <span id="categoryCount">(0)</span> : 
+          </p>
           <div id="categoryDropdown">
     </div>
         
@@ -53,7 +58,15 @@
       
     </div>
         <div class="dropdown-checkbox">
-          <<p class="filter-label">Mot(s)-clés : <span id="keywordCount">(0)</span></p>
+          <p class="filter-label">Mot(s)-clés 
+            <span class="info-icon" >
+              <sup onclick="showTooltip(this)">🛈</sup>
+              <span class="tooltip">
+              Les mots-clés sont issus du thésaurus 
+              <a href="https://decs.bvsalud.org/fr/" target="_blank" style="color: #fff; text-decoration: underline;">DeCS</a>.
+              </span>
+            </span> 
+            <span id="keywordCount">(0)</span> : </p>
           <div id="keywordDropdown">
       
       
