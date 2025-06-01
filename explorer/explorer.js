@@ -1,16 +1,16 @@
-let events = {};
+let eventsData = {};
 let currentEvents = [];
 let currentIndex = -1;
 
-fetch('events.json')
+fetch('explorer.json')
   .then(response => response.json())
   .then(data => {
-    events = data;
+    eventsData = data;
     initDropdowns();
     updateTimeline();
   })
-  .catch(err => {
-    console.error("Erreur de chargement des événements :", err);
+  .catch(error => {
+    console.error("Erreur lors du chargement des événements :", error);
   });
 
 function toggleDropdown(id) {
