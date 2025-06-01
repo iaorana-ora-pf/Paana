@@ -191,6 +191,10 @@ nav a:hover i {
   cursor: pointer;
   position: relative;
   font-size: 0.9em;
+  vertical-align: super;
+  color: #007b7f;
+  text-decoration: none;
+}
 }
 
 .tooltip {
@@ -205,17 +209,12 @@ nav a:hover i {
   width: 200px;
   z-index: 100;
   font-size: 0.8rem;
-  font-weight: normal;
-}
+  }
 
 .info-icon:hover .tooltip {
   display: block;
 }
 
-.info-icon sup {
-  text-decoration: none;
-  font-weight: normal;
-}
 /* Filtres */
 .filters-title {
   font-family: 'Segoe UI', sans-serif;
