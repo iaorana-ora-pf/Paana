@@ -123,17 +123,17 @@ function initDropdowns() {
   });
 
 document.getElementById("subjectDropdown").innerHTML =
-    Array.from(subjects).sort().map(s => `
+    Array.from(subjects).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(s => `
       <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${s}</label><br>
     `).join("");
 
   document.getElementById("keywordDropdown").innerHTML =
-    Array.from(keywords).sort().map(k => `
+    Array.from(keywords).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(k => `
       <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${k}</label><br>
     `).join("");
 
   document.getElementById("categoryDropdown").innerHTML =
-    Array.from(categories).sort().map(c => `
+    Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => `
       <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${c}</label><br>
     `).join("");
 }
