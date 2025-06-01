@@ -23,6 +23,7 @@ function resetFilters() {
   document.getElementById("searchInput").value = "";
   updateTimeline();
   renderActiveFilters();
+  updateActiveFilterBadges();
 }
 
 function getFilters() {
@@ -68,6 +69,7 @@ function updateTimeline() {
   }
    updateDependentFilters();
   renderActiveFilters();
+  updateActiveFilterBadges();
 }
 
 function showDetails(ev, year) {
@@ -136,6 +138,8 @@ document.getElementById("subjectDropdown").innerHTML =
     Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => `
       <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${c}</label><br>
     `).join("");
+
+  updateActiveFilterBadges();
 }
 
 function updateDependentFilters() {
@@ -230,4 +234,30 @@ function renderActiveFilters() {
   }
 
   container.innerHTML = badges.join(" ");
+}
+
+function updateActiveFilterBadges() {
+  const filters = getFilters();
+  const activeFiltersDiv = document.getElementById("active-filters");
+  const section = document.getElementById("active-filters-section");
+  activeFiltersDiv.innerHTML = "";
+
+  const all = [
+    ...filters.categories.map(c => `Catégorie : ${c}`),
+    ...filters.subjects.map(s => `Sujet : ${s}`),
+    ...filters.keywords.map(k => `Mot-clé : ${k}`)
+  ];
+
+  if (all.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+
+  section.style.display = "block";
+  all.forEach(text => {
+    const badge = document.createElement("span");
+    badge.className = "filter-badge";
+    badge.textContent = text;
+    activeFiltersDiv.appendChild(badge);
+  });
 }
