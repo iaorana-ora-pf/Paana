@@ -230,6 +230,32 @@ nav a:hover i {
   margin-top: 10px;
   margin-bottom: 5px;
 }
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.filter-badge {
+  background-color: #007b7f;
+  color: #fdfdf0;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.filter-badge button {
+  background: none;
+  border: none;
+  color: #fdfdf0;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
 /* Zone RECHERCHE */
 #searchInput {
   background-color: #ffffff;
