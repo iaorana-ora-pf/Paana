@@ -22,7 +22,6 @@ function resetFilters() {
   document.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
   document.getElementById("searchInput").value = "";
   updateTimeline();
-  renderActiveFilters(); // optionnel si utilisée
   updateActiveFilterBadges(); // ✅ important ici
 }
 
@@ -110,7 +109,6 @@ function updateTimeline() {
     }
   }
    updateDependentFilters();
-  renderActiveFilters(); // optionnel
   updateActiveFilterBadges(); // ✅ ici aussi
   }
 
