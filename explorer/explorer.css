@@ -131,7 +131,7 @@ nav a:hover i {
   border: 1px solid #ccc;
   padding: 10px;
   position: relative;
-  max-height: 120px;
+  max-height: 80px;
   overflow-y: auto;
   margin-top: 5px;
 }
