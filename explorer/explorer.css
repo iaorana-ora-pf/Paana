@@ -205,41 +205,16 @@ nav a:hover i {
   width: 200px;
   z-index: 100;
   font-size: 0.8rem;
+  font-weight: normal;
 }
 
 .info-icon:hover .tooltip {
   display: block;
 }
 
-a.info-icon {
+.info-icon sup {
   text-decoration: none;
-  vertical-align: super;
-  font-size: 0.75em;
-  margin-left: 4px;
-  color: #007b7f;
-  position: relative;
-}
-
-a.info-icon::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 4px;
-  white-space: nowrap;
-  font-size: 0.75rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s;
-  z-index: 999;
-}
-
-a.info-icon:hover::after {
-  opacity: 1;
+  font-weight: normal;
 }
 /* Filtres */
 .filters-title {
