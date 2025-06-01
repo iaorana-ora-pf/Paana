@@ -120,14 +120,20 @@ function initDropdowns() {
     categories.add(e.category);
   });
 
-  document.getElementById("subjectDropdown").innerHTML =
-    Array.from(subjects).sort().map(s => `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters()">
+ document.getElementById("subjectDropdown").innerHTML =
+    Array.from(subjects).sort().map(s =>
+      `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters()"> ${s}</label><br>`
+    ).join("");
 
   document.getElementById("keywordDropdown").innerHTML =
-    Array.from(keywords).sort().map(k => `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters()">
+    Array.from(keywords).sort().map(k =>
+      `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters()"> ${k}</label><br>`
+    ).join("");
 
   document.getElementById("categoryDropdown").innerHTML =
-    Array.from(categories).sort().map(c => `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters()">
+    Array.from(categories).sort().map(c =>
+      `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters()"> ${c}</label><br>`
+    ).join("");
 }
 
 
