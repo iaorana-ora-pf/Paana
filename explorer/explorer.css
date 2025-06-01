@@ -195,7 +195,6 @@ nav a:hover i {
   color: #007b7f;
   text-decoration: none;
 }
-}
 
 .tooltip {
   display: none;
@@ -266,6 +265,16 @@ nav a:hover i {
   margin-left: 6px;
   cursor: pointer;
   font-weight: bold;
+}
+
+.remove-badge {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fdfdf0;
+}
+.remove-badge:hover {
+  color: #ffcccc;
 }
 /* Zone RECHERCHE */
 #searchInput {
