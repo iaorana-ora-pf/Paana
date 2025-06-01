@@ -36,6 +36,7 @@ function getFilters() {
 
 function updateTimeline() {
   const container = document.getElementById("timeline");
+  container.innerHTML = ""; // ✅ vide la frise avant de regénérer
   const filters = getFilters();
 
 
