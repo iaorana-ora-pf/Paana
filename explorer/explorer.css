@@ -238,7 +238,16 @@ nav a:hover i {
  margin-bottom: 15px;
  padding: 10px 0;
  }
-
+.active-filters-section {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.filters-active-title {
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  color: #007b7f;
+  margin-bottom: 8px;
+}
 .filter-badge {
   background-color: #007b7f;
   color: #fff;
@@ -246,6 +255,7 @@ nav a:hover i {
   border-radius: 12px;
   font-size: 0.9rem;
   display: flex;
+   font-family: 'Segoe UI', sans-serif;
   align-items: center;
 }
 
