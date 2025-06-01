@@ -58,6 +58,12 @@
         </div>
 
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
+       
+        <div id="active-filters-section" style="display: none; margin-top: 20px;">
+        <p><strong>Filtres sélectionnés :</strong></p>
+        <div id="active-filters"></div>
+        </div>
+        
         <button class="reset-btn" onclick="resetFilters()">Réinitialiser</button>
       </div>
     </div>
