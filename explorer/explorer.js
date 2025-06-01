@@ -22,8 +22,6 @@ function resetFilters() {
   document.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
   document.getElementById("searchInput").value = "";
   updateTimeline();
-  renderActiveFilters();
-  updateActiveFilterBadges();
 }
 
 function getFilters() {
@@ -68,8 +66,7 @@ function updateTimeline() {
     }
   }
    updateDependentFilters();
-  renderActiveFilters();
-}
+  }
 
 function showDetails(ev, year) {
   currentEvents = collectFilteredEvents();
@@ -125,20 +122,19 @@ function initDropdowns() {
 
 document.getElementById("subjectDropdown").innerHTML =
     Array.from(subjects).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(s => `
-      <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${s}</label><br>
+      <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters()"> ${s}</label><br>
     `).join("");
 
   document.getElementById("keywordDropdown").innerHTML =
     Array.from(keywords).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(k => `
-      <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${k}</label><br>
+      <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters()"> ${k}</label><br>
     `).join("");
 
   document.getElementById("categoryDropdown").innerHTML =
     Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => `
-      <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); renderActiveFilters(); updateDependentFilters()"> ${c}</label><br>
+      <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters()"> ${c}</label><br>
     `).join("");
 
-  updateActiveFilterBadges();
 }
 
 function updateDependentFilters() {
@@ -188,66 +184,6 @@ function updateDependentFilters() {
 }
 
 
-function renderActiveFilters() {
-  const filters = getFilters();
-  const container = document.getElementById("activeFilters");
-  container.innerHTML = ""; // Réinitialise les badges
 
-  const makeBadge = (label, value) =>
-    `<span class="filter-badge">${label} : ${value}</span>`;
 
-  const badges = [];
-
-  filters.categories.forEach(val => badges.push(makeBadge("Catégorie", val)));
-  filters.subjects.forEach(val => badges.push(makeBadge("Sujet", val)));
-  filters.keywords.forEach(val => badges.push(makeBadge("Mot-clé", val)));
-  if (filters.search) {
-    badges.push(makeBadge("Recherche", filters.search));
-  }
-
-  container.innerHTML = badges.join(" ");
-}
-
-function updateActiveFilterBadges() {
-  const filters = getFilters();
-  const activeFiltersDiv = document.getElementById("active-filters");
-  const section = document.getElementById("active-filters-section");
-  activeFiltersDiv.innerHTML = "";
-
-  const all = [
-    ...filters.categories.map(c => ({ type: "category", value: c })),
-    ...filters.subjects.map(s => ({ type: "subject", value: s })),
-    ...filters.keywords.map(k => ({ type: "keyword", value: k }))
-  ];
-
-  if (all.length === 0) {
-    section.style.display = "none";
-    return;
-  }
-
-  section.style.display = "block";
-
-  all.forEach(({ type, value }) => {
-    const badge = document.createElement("span");
-    badge.className = "filter-badge";
-    badge.innerHTML = `${type === "category" ? "Catégorie" : type === "subject" ? "Sujet" : "Mot-clé"} : ${value} <span class="remove-badge" data-type="${type}" data-value="${value}">&times;</span>`;
-    activeFiltersDiv.appendChild(badge);
-  });
-
-  // Ajout des événements de clic sur les croix
-  document.querySelectorAll(".remove-badge").forEach(span => {
-    span.addEventListener("click", () => {
-      const type = span.dataset.type;
-      const value = span.dataset.value;
-      const selector = `.${type}-filter[value="${value}"]`;
-      const checkbox = document.querySelector(selector);
-      if (checkbox) {
-        checkbox.checked = false;
-        updateTimeline();
-        updateDependentFilters();
-        updateActiveFilterBadges();
-      }
-    });
-  });
-}
 
