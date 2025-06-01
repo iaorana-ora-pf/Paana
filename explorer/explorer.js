@@ -243,9 +243,9 @@ function updateActiveFilterBadges() {
   activeFiltersDiv.innerHTML = "";
 
   const all = [
-    ...filters.categories.map(c => `Catégorie : ${c}`),
-    ...filters.subjects.map(s => `Sujet : ${s}`),
-    ...filters.keywords.map(k => `Mot-clé : ${k}`)
+    ...filters.categories.map(c => ({ type: "category", value: c })),
+    ...filters.subjects.map(s => ({ type: "subject", value: s })),
+    ...filters.keywords.map(k => ({ type: "keyword", value: k }))
   ];
 
   if (all.length === 0) {
@@ -254,10 +254,28 @@ function updateActiveFilterBadges() {
   }
 
   section.style.display = "block";
-  all.forEach(text => {
+
+  all.forEach(({ type, value }) => {
     const badge = document.createElement("span");
     badge.className = "filter-badge";
-    badge.textContent = text;
+    badge.innerHTML = `${type === "category" ? "Catégorie" : type === "subject" ? "Sujet" : "Mot-clé"} : ${value} <span class="remove-badge" data-type="${type}" data-value="${value}">&times;</span>`;
     activeFiltersDiv.appendChild(badge);
   });
+
+  // Ajout des événements de clic sur les croix
+  document.querySelectorAll(".remove-badge").forEach(span => {
+    span.addEventListener("click", () => {
+      const type = span.dataset.type;
+      const value = span.dataset.value;
+      const selector = `.${type}-filter[value="${value}"]`;
+      const checkbox = document.querySelector(selector);
+      if (checkbox) {
+        checkbox.checked = false;
+        updateTimeline();
+        updateDependentFilters();
+        updateActiveFilterBadges();
+      }
+    });
+  });
 }
+
