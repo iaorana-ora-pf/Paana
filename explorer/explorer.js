@@ -243,7 +243,7 @@ function updateDetails(ev, year) {
 
   container.innerHTML = `
     container.innerHTML = `
-  <h2>${ev.name}</h2>
+  <h2>$ev.name}</h2>
   <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
 
   <p><strong>Catégorie(s) :</strong><br>
