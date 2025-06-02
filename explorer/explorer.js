@@ -178,7 +178,7 @@ function updateTimeline() {
         e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
       ))
-    );
+   ));
 
     if (filtered.length) {
       const block = document.createElement("div");
