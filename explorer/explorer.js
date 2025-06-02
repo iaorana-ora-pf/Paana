@@ -186,7 +186,7 @@ function updateTimeline() {
           <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;" title="${ev.category}"></i>
           <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
            <span>${ev.name}</span>
-           ${isMultiYear ? `<span class="multi-year-badge">pluriannuel</span>` : ""}
+           ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
         </div>`;
     }).join("")}
   </div>
