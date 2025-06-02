@@ -156,9 +156,7 @@ nav a:hover i {
   border: 1px solid #ccc;
   padding: 10px;
   border-radius: 8px;
-}
-.year-block  {
-  text-align: center;
+  text-align: left;
 }
 .year-block li {
   background: #e0e0e0;
