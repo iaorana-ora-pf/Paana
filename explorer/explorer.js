@@ -1,7 +1,24 @@
 let events = {};
 let currentEvents = [];
 let currentIndex = -1;
+// Catégories fixes avec icônes associées
+const fixedCategories = [
+  "Gouvernance et pilotage stratégique",
+  "Données, surveillance et recherche",
+  "Promotion de la santé et prévention",
+  "Protection sanitaire et gestion des risques",
+  "Accès aux services et aux moyens",
+  "Contexte"
+];
 
+const fixedCategoryIcons = {
+  "Gouvernance et pilotage stratégique": "fa-scale-balanced",
+  "Données, surveillance et recherche": "fa-database",
+  "Promotion de la santé et prévention": "fa-heart-pulse",
+  "Protection sanitaire et gestion des risques": "fa-shield-alt",
+  "Accès aux services et aux moyens": "fa-hospital",
+  "Contexte": "fa-landmark"
+};
 // 🧠 Cartes automatiques pour les icônes et les couleurs
 const categoryIcons = new Map();
 const subjectColors = new Map();
@@ -21,19 +38,7 @@ function generateColor() {
 
 // Attribue une icône à une nouvelle catégorie
 function getIconForCategory(cat) {
-  if (categoryIcons.has(cat)) return categoryIcons.get(cat);
-
-  const stored = localStorage.getItem("icon-" + cat);
-  if (stored) {
-    categoryIcons.set(cat, stored);
-    return stored;
-  }
-
-  const icon = availableIcons[iconIndex % availableIcons.length];
-  iconIndex++;
-  categoryIcons.set(cat, icon);
-  localStorage.setItem("icon-" + cat, icon);
-  return icon;
+  return fixedCategoryIcons[cat] || "fa-circle"; // icône générique si non trouvée
 }
 
 // Attribue une couleur à un nouveau thème (sujet)
