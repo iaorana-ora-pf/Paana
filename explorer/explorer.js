@@ -203,7 +203,12 @@ function showDetails(ev, year) {
   container.innerHTML = `
     <h2 style="color:#007b7f">${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-    <div><strong>Catégories :</strong><ul>${catList}</ul></div>
+    <div>
+  <strong>Catégories :</strong>
+  <ul style="list-style: none; padding-left: 0; text-align: left;">
+    ${catList}
+  </ul>
+</div>
     <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" style="background:${subjectColor}"></span></p>
     <p><strong>Mots-clés :</strong><br>${keywordList}</p>
     <p><strong>Description :</strong><br>${ev.description || "N/A"}</p>
