@@ -71,6 +71,8 @@ function expandMultiYearEvents(data) {
     expanded[yStr].push({ ...ev });
   }
 }
+        });
+  }
   return expanded;
 }
 
