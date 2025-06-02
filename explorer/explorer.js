@@ -21,19 +21,35 @@ function generateColor() {
 
 // Attribue une icône à une nouvelle catégorie
 function getIconForCategory(cat) {
-  if (!categoryIcons.has(cat)) {
-    categoryIcons.set(cat, availableIcons[iconIndex % availableIcons.length]);
-    iconIndex++;
+  if (categoryIcons.has(cat)) return categoryIcons.get(cat);
+
+  const stored = localStorage.getItem("icon-" + cat);
+  if (stored) {
+    categoryIcons.set(cat, stored);
+    return stored;
   }
-  return categoryIcons.get(cat);
+
+  const icon = availableIcons[iconIndex % availableIcons.length];
+  iconIndex++;
+  categoryIcons.set(cat, icon);
+  localStorage.setItem("icon-" + cat, icon);
+  return icon;
 }
 
 // Attribue une couleur à un nouveau thème (sujet)
 function getColorForSubject(subject) {
-  if (!subjectColors.has(subject)) {
-    subjectColors.set(subject, generateColor());
+  if (subjectColors.has(subject)) return subjectColors.get(subject);
+
+  const stored = localStorage.getItem("color-" + subject);
+  if (stored) {
+    subjectColors.set(subject, stored);
+    return stored;
   }
-  return subjectColors.get(subject);
+
+  const color = generateColor();
+  subjectColors.set(subject, color);
+  localStorage.setItem("color-" + subject, color);
+  return color;
 }
 
 fetch('./explorer.json')
