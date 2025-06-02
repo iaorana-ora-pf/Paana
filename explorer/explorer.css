@@ -131,6 +131,10 @@ nav a:hover i {
   border-radius: 8px;
   overflow-y: auto;
 }
+.right-col {
+  background-color: #f0f0f0; /* gris clair (même que colonne gauche) */
+}
+
 .left-col { background: #f0f0f0; }
 .filters {
   display: flex;
@@ -191,7 +195,7 @@ nav a:hover i {
   background: #dce775;
 }
 .event-details {
-  border: 2px solid #000;
+  background-color: white; /* fiche sur fond blanc */
   border-radius: 10px;
   padding: 20px;
 }
