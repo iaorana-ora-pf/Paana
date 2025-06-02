@@ -1,10 +1,10 @@
-// === explorer.js complet, version propre avec catégories fixes ===
+// === Fichier JavaScript complet avec catégories fixes et gestion du filtre ===
 
 let events = {};
 let currentEvents = [];
 let currentIndex = -1;
 
-// Énumération de catégories fixes avec icônes
+// Catégories fixes avec icônes associées
 const fixedCategories = [
   "Gouvernance et pilotage stratégique",
   "Données, surveillance et recherche",
@@ -25,24 +25,22 @@ const fixedCategoryIcons = {
 
 const subjectColors = new Map();
 
-function getIconForCategory(cat) {
-  return fixedCategoryIcons[cat] || "fa-circle";
-}
-
 function generateColor() {
   const hue = Math.floor(Math.random() * 360);
   return `hsl(${hue}, 60%, 60%)`;
 }
 
+function getIconForCategory(cat) {
+  return fixedCategoryIcons[cat] || "fa-circle";
+}
+
 function getColorForSubject(subject) {
   if (subjectColors.has(subject)) return subjectColors.get(subject);
-
   const stored = localStorage.getItem("color-" + subject);
   if (stored) {
     subjectColors.set(subject, stored);
     return stored;
   }
-
   const color = generateColor();
   subjectColors.set(subject, color);
   localStorage.setItem("color-" + subject, color);
@@ -50,29 +48,39 @@ function getColorForSubject(subject) {
 }
 
 fetch('./explorer.json')
-  .then(response => response.json())
+  .then(r => r.json())
   .then(data => {
     events = expandMultiYearEvents(data);
     initDropdowns();
     updateTimeline();
-    document.getElementById("event-details-container").innerHTML = `<p style="text-align:center;font-style:italic;color:#555;">Cliquez sur un événement pour accéder à sa fiche détaillée.</p>`;
+    document.getElementById("event-details-container").innerHTML = `<p style="text-align:center; font-style:italic; color:#555;">Cliquez sur un événement pour accéder à sa fiche détaillée.</p>`;
   })
-  .catch(error => console.error("Erreur de chargement :", error));
+  .catch(err => console.error("Erreur de chargement :", err));
 
 function expandMultiYearEvents(data) {
   const expanded = {};
   for (const year in data) {
-    data[year].forEach(event => {
-      const start = parseInt(event.start || year);
-      const end = parseInt(event.end || year);
+    data[year].forEach(ev => {
+      const start = parseInt(ev.start || year);
+      const end = parseInt(ev.end || year);
       for (let y = start; y <= end; y++) {
         const yStr = y.toString();
         if (!expanded[yStr]) expanded[yStr] = [];
-        expanded[yStr].push({ ...event });
+        expanded[yStr].push({ ...ev });
       }
     });
   }
   return expanded;
+}
+
+function getFilters() {
+  const getChecked = cls => [...document.querySelectorAll('.' + cls + '-filter:checked')].map(e => e.value);
+  return {
+    categories: getChecked("category"),
+    subjects: getChecked("subject"),
+    keywords: getChecked("keyword"),
+    search: document.getElementById("searchInput").value.toLowerCase()
+  };
 }
 
 function updateTimeline() {
@@ -82,12 +90,12 @@ function updateTimeline() {
 
   for (const year in events) {
     const filtered = events[year].filter(e =>
-      (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(cat => filters.categories.includes(cat)) : filters.categories.includes(e.category))) &&
+      (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(c => filters.categories.includes(c)) : filters.categories.includes(e.category))) &&
       (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
         e.name.toLowerCase().includes(filters.search) ||
-        (Array.isArray(e.category) ? e.category.join(", ").toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
+        (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
         e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
       ))
@@ -102,82 +110,98 @@ function updateTimeline() {
           ${filtered.map((ev, i) => {
             const id = `event-${year}-${i}`;
             window[id] = ev;
-            const icons = (Array.isArray(ev.category) ? ev.category : [ev.category])
-              .map(cat => `<i class="fas ${getIconForCategory(cat)}" title="${cat}" style="margin-right:4px; color:#007b7f;"></i>`)
-              .join("");
-            const color = getColorForSubject(ev.subject);
             const isMulti = ev.start && ev.end && ev.start !== ev.end;
-            const isContext = (Array.isArray(ev.category) ? ev.category.includes("Contexte") : ev.category === "Contexte");
-            return `<li class="${isContext ? "context-bg" : ""}" onclick='showDetails(window["${id}"], "${year}")'>${icons}<span class="color-box" style="background:${color}; margin-right:6px;"></span>${ev.name}${isMulti ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}</li>`;
+            const isContext = Array.isArray(ev.category) ? ev.category.includes("Contexte") : ev.category === "Contexte";
+            const contextClass = isContext ? "context-event" : "";
+            const iconHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
+              .map(cat => `<i class="fas ${getIconForCategory(cat)}" title="${cat}" style="margin-right:4px;color:#007b7f"></i>`).join("");
+            const color = getColorForSubject(ev.subject);
+            return `<li class="${contextClass}" data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>${iconHTML}<span class="color-box" style="background:${color}" title="${ev.subject}"></span> <span>${ev.name}</span>${isMulti ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}</li>`;
           }).join("")}
-        </div>
-      `;
+        </div>`;
       container.appendChild(block);
     }
   }
+  updateDependentFilters();
+  updateActiveFilterBadges();
+}
+
+function updateDependentFilters() {
+  const filters = getFilters();
+  const visibleSubjects = new Set();
+  const visibleKeywords = new Set();
+  const visibleCategories = new Set();
+
+  Object.values(events).flat().forEach(ev => {
+    const matchCat = !filters.categories.length || (Array.isArray(ev.category) ? ev.category.some(cat => filters.categories.includes(cat)) : filters.categories.includes(ev.category));
+    const matchSub = !filters.subjects.length || filters.subjects.includes(ev.subject);
+    const matchKey = !filters.keywords.length || ev.keywords.some(k => filters.keywords.includes(k));
+    if (matchCat && matchSub && matchKey) {
+      visibleSubjects.add(ev.subject);
+      ev.keywords.forEach(k => visibleKeywords.add(k));
+      (Array.isArray(ev.category) ? ev.category : [ev.category]).forEach(cat => visibleCategories.add(cat));
+    }
+  });
+
+  document.querySelectorAll(".subject-filter").forEach(cb => {
+    cb.parentElement.style.color = visibleSubjects.has(cb.value) ? "black" : "#999";
+  });
+  document.querySelectorAll(".keyword-filter").forEach(cb => {
+    cb.parentElement.style.color = visibleKeywords.has(cb.value) ? "black" : "#999";
+  });
+  document.querySelectorAll(".category-filter").forEach(cb => {
+    cb.parentElement.style.color = visibleCategories.has(cb.value) ? "black" : "#999";
+  });
+}
+
+function initDropdowns() {
+  const subjects = new Set();
+  const keywords = new Set();
+  const categories = new Set();
+
+  Object.values(events).flat().forEach(e => {
+    subjects.add(e.subject);
+    e.keywords.forEach(k => keywords.add(k));
+    (Array.isArray(e.category) ? e.category : [e.category]).forEach(cat => categories.add(cat));
+  });
+
+  document.getElementById("categoryDropdown").innerHTML =
+    Array.from(categories).sort().map(c => `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> <i class="fas ${getIconForCategory(c)}"></i> ${c}</label><br>`).join("");
+  document.getElementById("subjectDropdown").innerHTML =
+    Array.from(subjects).sort().map(s => `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> <span class="color-box" style="background:${getColorForSubject(s)}"></span> ${s}</label><br>`).join("");
+  document.getElementById("keywordDropdown").innerHTML =
+    Array.from(keywords).sort().map(k => `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>`).join("");
 }
 
 function showDetails(ev, year) {
   currentEvents = collectFilteredEvents();
   currentIndex = currentEvents.findIndex(e => e.name === ev.name);
-  updateDetails(ev, year);
-}
-
-function updateDetails(ev, year) {
   const container = document.getElementById("event-details-container");
-  if (!container) return;
-
   const isMulti = ev.start && ev.end && ev.start !== ev.end;
-  const categoryHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
-    .map(cat => `<li><i class="fas ${getIconForCategory(cat)}" style="margin-right:6px;"></i> ${cat}</li>`).join("");
   const subjectColor = getColorForSubject(ev.subject);
-  const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
-  const sources = (ev.sources || []).map(src => src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src).join("<br>");
+  const catList = (Array.isArray(ev.category) ? ev.category : [ev.category]).map(cat => `<li><i class="fas ${getIconForCategory(cat)}"></i> ${cat}</li>`).join("");
+  const sourceList = (ev.sources || []).map(src => src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src).join("<br>");
+  const keywordList = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
   container.innerHTML = `
-    <h2 style="color:#007b7f; font-size:1.8em;">${ev.name}</h2>
+    <h2 style="color:#007b7f">${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-    <p><strong>Catégorie(s) :</strong></p><ul style="list-style:none; padding:0;">${categoryHTML}</ul>
-    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" style="background:${subjectColor}; margin-left:6px;"></span></p>
-    <p><strong>Mots-clés :</strong><br>${keywordsHTML}</p>
+    <div><strong>Catégories :</strong><ul>${catList}</ul></div>
+    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" style="background:${subjectColor}"></span></p>
+    <p><strong>Mots-clés :</strong><br>${keywordList}</p>
     <p><strong>Description :</strong><br>${ev.description || "N/A"}</p>
-    <p><strong>Sources :</strong><br>${sources || "N/A"}</p>
-  `;
+    <p><strong>Sources :</strong><br>${sourceList || "N/A"}</p>`;
+
+  document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
+  const selected = document.querySelector(`li[data-uid="${ev.name}-${year}"]`);
+  if (selected) selected.classList.add("selected-event");
 }
 
-function getFilters() {
-  const getChecked = cls => Array.from(document.querySelectorAll("." + cls + "-filter:checked")).map(e => e.value);
-  return {
-    categories: getChecked("category"),
-    subjects: getChecked("subject"),
-    keywords: getChecked("keyword"),
-    search: document.getElementById("searchInput").value.toLowerCase()
-  };
-}
-
-function initDropdowns() {
-  const categories = fixedCategories;
-  const subjects = new Set();
-  const keywords = new Set();
-
-  Object.values(events).flat().forEach(e => {
-    subjects.add(e.subject);
-    e.keywords.forEach(k => keywords.add(k));
-  });
-
-  document.getElementById("categoryDropdown").innerHTML = categories.map(c => {
-    const icon = getIconForCategory(c);
-    return `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline();"> <i class="fas ${icon}" style="margin-right:6px;"></i> ${c}</label><br>`;
-  }).join("");
-
-  document.getElementById("subjectDropdown").innerHTML = Array.from(subjects).sort().map(s => {
-    const color = getColorForSubject(s);
-    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline();"><span class="color-box" style="background:${color}; margin-right:6px;"></span>${s}</label><br>`;
-  }).join("");
-
-  document.getElementById("keywordDropdown").innerHTML = Array.from(keywords).sort().map(k => {
-    return `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline();"> ${k}</label><br>`;
-  }).join("");
+function navigateEvent(dir) {
+  if (currentEvents.length === 0 || currentIndex === -1) return;
+  currentIndex = (currentIndex + dir + currentEvents.length) % currentEvents.length;
+  const next = currentEvents[currentIndex];
+  updateDetails(next, Object.keys(events).find(year => events[year].some(e => e.name === next.name)));
 }
 
 function collectFilteredEvents() {
@@ -189,7 +213,7 @@ function collectFilteredEvents() {
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
         e.name.toLowerCase().includes(filters.search) ||
-        (Array.isArray(e.category) ? e.category.join(", ").toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
+        (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
         e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
       ))
@@ -197,9 +221,46 @@ function collectFilteredEvents() {
   );
 }
 
-function navigateEvent(direction) {
-  if (currentEvents.length === 0 || currentIndex === -1) return;
-  currentIndex = (currentIndex + direction + currentEvents.length) % currentEvents.length;
-  const next = currentEvents[currentIndex];
-  updateDetails(next, Object.keys(events).find(year => events[year].some(e => e.name === next.name)));
+function updateActiveFilterBadges() {
+  const filters = getFilters();
+  const container = document.getElementById("active-filters");
+  const section = document.getElementById("active-filters-section");
+  container.innerHTML = "";
+  const all = [
+    ...filters.categories.map(c => ({ type: "category", value: c })),
+    ...filters.subjects.map(s => ({ type: "subject", value: s })),
+    ...filters.keywords.map(k => ({ type: "keyword", value: k }))
+  ];
+  if (all.length === 0) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "block";
+  all.forEach(({ type, value }) => {
+    const badge = document.createElement("span");
+    badge.className = "filter-badge";
+    badge.innerHTML = `${type === "category" ? "Catégorie" : type === "subject" ? "Sujet" : "Mot-clé"} : ${value} <span class="remove-badge" data-type="${type}" data-value="${value}">&times;</span>`;
+    container.appendChild(badge);
+  });
+  document.querySelectorAll(".remove-badge").forEach(span => {
+    span.addEventListener("click", () => {
+      const type = span.dataset.type;
+      const value = span.dataset.value;
+      const selector = `.${type}-filter[value="${value}"]`;
+      const cb = document.querySelector(selector);
+      if (cb) {
+        cb.checked = false;
+        updateTimeline();
+        updateDependentFilters();
+        updateActiveFilterBadges();
+      }
+    });
+  });
+}
+
+function resetFilters() {
+  document.querySelectorAll("input[type=checkbox]").forEach(cb => cb.checked = false);
+  document.getElementById("searchInput").value = "";
+  updateTimeline();
+  updateActiveFilterBadges();
 }
