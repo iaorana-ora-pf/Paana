@@ -236,5 +236,25 @@
       ],
       "description": "Crise sanitaire mondiale"
     }
-  ]
+     {
+    "name": "Projet Climat 2020-2023",
+    "category": "Écologie",
+    "subject": "climat",
+    "keywords": ["COP", "environnement"],
+    "description": "Projet d'adaptation climatique régional.",
+    "start": "2020",
+    "end": "2023"
+  }
+  ],
+  "2022": [
+  {
+    "name": "Plan Santé 2022-2025",
+    "category": "Protection",
+    "subject": "santé",
+    "keywords": ["prévention", "santé publique"],
+    "description": "Programme pluriannuel de prévention en santé publique.",
+    "start": "2022",
+    "end": "2025"
+  }
+]
 }
