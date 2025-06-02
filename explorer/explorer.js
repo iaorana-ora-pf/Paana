@@ -207,14 +207,17 @@ function showDetails(ev, year) {
 }
 
 function updateDetails(ev, year) {
-  document.getElementById("detail-title").innerText = ev.name;
-  document.getElementById("detail-year").innerText = year;
-  document.getElementById("detail-category").innerText = ev.category;
-  document.getElementById("detail-subject").innerText = ev.subject;
-  document.getElementById("detail-keywords").innerText = ev.keywords.join(", ");
-  document.getElementById("detail-description").innerText = ev.description;
-  document.getElementById("detail-sources").innerText = ev.sources ? ev.sources.join(", ") : "N/A";
-  document.getElementById("detail-files").innerText = ev.files ? ev.files.join(", ") : "N/A";
+  const detailContainer = document.getElementById("detail-title");
+  detailContainer.innerText = ev.name;
+
+  // Supprime la surbrillance de tous les événements
+  document.querySelectorAll(".year-block li").forEach(li => {
+    li.classList.remove("selected-event");
+  });
+
+  // Ajoute la surbrillance à celui qui est sélectionné
+  const selectedLi = document.querySelector(`li[data-uid="${ev.name}-${year}"]`);
+  if (selectedLi) selectedLi.classList.add("selected-event");
 }
 
 function navigateEvent(direction) {
