@@ -241,42 +241,15 @@ function updateDetails(ev, year) {
 
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
-// 🔹 Nom
-const nameHTML = `<h2>${ev.name}</h2>`;
-
-// 🔹 Période
-const periodHTML = `<p><strong>${isMulti ? `Période : ${ev.start} – ${ev.end}` : `Année : ${year}`}</strong></p>`;
-
-// 🔹 Catégories (en liste)
-const categories = Array.isArray(ev.category) ? ev.category : [ev.category];
-const categoryHTML = `<p><strong>Catégorie(s) :</strong><br>${categories.map(cat => `<span>${cat} <i class="fas ${getIconForCategory(cat)}"></i></span>`).join("<br>")}</p>`;
-
-// 🔹 Sujet
-const subjectHTML = `<p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>`;
-
-// 🔹 Mots-clés
-const keywordsHTML = `<p><strong>Mots-clés :</strong><br>${(ev.keywords || []).map(k => `• ${k}`).join("<br>")}</p>`;
-
-// 🔹 Description
-const descriptionHTML = `<p><strong>Description :</strong><br>${ev.description || "N/A"}</p>`;
-
-// 🔹 Sources (liens ou texte)
-const formattedSources = (ev.sources || []).map(src =>
-  src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
-).join("<br>");
-const sourcesHTML = `<p><strong>Sources :</strong><br>${formattedSources || "N/A"}</p>`;
-
-// 🔹 Affichage final
-container.innerHTML = `
-  ${nameHTML}
-  ${periodHTML}
-  ${categoryHTML}
-  ${subjectHTML}
-  ${keywordsHTML}
-  ${descriptionHTML}
-  ${sourcesHTML}
-`;
-  
+  container.innerHTML = `
+    <h2>${ev.name}</h2>
+    <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
+    <p><strong>Catégorie(s) :</strong><ul>${categoryHTML}</ul></p>
+    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
+    <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
+    <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
+    <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
+  `;
 
   // Met à jour la surbrillance dans la frise
   document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
