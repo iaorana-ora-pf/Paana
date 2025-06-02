@@ -441,3 +441,6 @@ nav a:hover i {
 .aide-encart .aide-lien:hover {
   text-decoration: underline;
 }
+li.context-event {
+  background-color: #f5f0e6 !important; /* fond beige doux */
+}
