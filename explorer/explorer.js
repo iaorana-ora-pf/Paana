@@ -204,7 +204,7 @@ function showDetails(ev, year) {
     <h2 style="color:#007b7f">${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
     <div>
-  <strong>Catégories :</strong>
+  <strong>Catégorie(s) :</strong>
   <ul style="list-style: none; padding-left: 0; text-align: left;">
     ${catList}
   </ul>
@@ -212,7 +212,7 @@ function showDetails(ev, year) {
     <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" style="background:${subjectColor}"></span></p>
     <p><strong>Mots-clés :</strong><br>${keywordList}</p>
     <p><strong>Description :</strong><br>${ev.description || "N/A"}</p>
-    <p><strong>Sources :</strong><br>${sourceList || "N/A"}</p>`;
+    <p><strong>Source(s) :</strong><br>${sourceList || "N/A"}</p>`;
 
   document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
   const selected = document.querySelector(`li[data-uid="${ev.name}-${year}"]`);
