@@ -2,6 +2,40 @@ let events = {};
 let currentEvents = [];
 let currentIndex = -1;
 
+// 🧠 Cartes automatiques pour les icônes et les couleurs
+const categoryIcons = new Map();
+const subjectColors = new Map();
+
+// Liste d'icônes FontAwesome disponibles (tu peux en ajouter)
+const availableIcons = [
+  "fa-landmark", "fa-shield-alt", "fa-lightbulb", "fa-database", 
+  "fa-leaf", "fa-heart-pulse", "fa-globe", "fa-users", "fa-scale-balanced"
+];
+let iconIndex = 0;
+
+// Génère une couleur vive et lisible automatiquement
+function generateColor() {
+  const hue = Math.floor(Math.random() * 360);
+  return `hsl(${hue}, 60%, 60%)`;
+}
+
+// Attribue une icône à une nouvelle catégorie
+function getIconForCategory(cat) {
+  if (!categoryIcons.has(cat)) {
+    categoryIcons.set(cat, availableIcons[iconIndex % availableIcons.length]);
+    iconIndex++;
+  }
+  return categoryIcons.get(cat);
+}
+
+// Attribue une couleur à un nouveau thème (sujet)
+function getColorForSubject(subject) {
+  if (!subjectColors.has(subject)) {
+    subjectColors.set(subject, generateColor());
+  }
+  return subjectColors.get(subject);
+}
+
 fetch('./explorer.json')
   .then(response => response.json())
   .then(data => {
@@ -123,11 +157,20 @@ function updateTimeline() {
       block.innerHTML = "<h3>" + year + "</h3><ul>" + 
   filtered.map((ev, i) => {
     const id = `event-${year}-${i}`;
-    window[id] = ev; // Stocke temporairement l'objet JS dans le scope global
-    return `<li onclick='showDetails(window["${id}"], "${year}")'>
-              <span class="color-box" style="background:#ccc"></span> ${ev.name}
-            </li>`;
+    window[id] = ev;
+
+    const iconClass = getIconForCategory(ev.category);
+    const color = getColorForSubject(ev.subject);
+
+    return `
+      <li onclick='showDetails(window["${id}"], "${year}")'>
+        <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;"></i>
+        <span class="color-box" style="background:${color}"></span> 
+        ${ev.name}
+      </li>`;
   }).join("") + "</ul>";
+
+      
       container.appendChild(block);
     }
   }
