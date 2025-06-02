@@ -55,10 +55,18 @@ function getColorForSubject(subject) {
 fetch('./explorer.json')
   .then(response => response.json())
   .then(data => {
-    events = expandMultiYearEvents(data);
-    initDropdowns();
-    updateTimeline();
-  })
+  events = expandMultiYearEvents(data);
+  initDropdowns();
+  updateTimeline();
+
+  // ✅ Message d’attente dans la fiche
+  document.getElementById("event-details-container").innerHTML = `
+    <p style="text-align: center; font-style: italic; color: #555;">
+      Cliquez sur un événement pour accéder à sa fiche détaillée.
+    </p>
+  `;
+})
+  
   .catch(error => {
     console.error("Erreur lors du chargement des événements :", error);
   });
