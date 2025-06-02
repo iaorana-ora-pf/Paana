@@ -332,8 +332,8 @@ nav a:hover i {
   text-align: center;
 }
 .multi-year-badge {
-   background-color: #aaa; /* plus clair qu’avant */
-  color: white;
+   background-color: #cce5ff; /* plus clair qu’avant */
+  color: #004085;
   font-size: 0.7em;
   padding: 2px 6px;
   border-radius: 4px;
