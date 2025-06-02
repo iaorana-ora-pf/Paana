@@ -162,15 +162,17 @@ function initDropdowns() {
   Object.values(events).flat().forEach(e => {
     subjects.add(e.subject);
     e.keywords.forEach(k => keywords.add(k));
-    (Array.isArray(e.category) ? e.category : [e.category]).forEach(cat => categories.add(cat));
+    fixedCategories.forEach(cat => categories.add(cat));
   });
 
   document.getElementById("categoryDropdown").innerHTML =
-    Array.from(categories).sort().map(c => `<label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> <i class="fas ${getIconForCategory(c)}"></i> ${c}</label><br>`).join("");
-  document.getElementById("subjectDropdown").innerHTML =
-    Array.from(subjects).sort().map(s => `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> <span class="color-box" style="background:${getColorForSubject(s)}"></span> ${s}</label><br>`).join("");
-  document.getElementById("keywordDropdown").innerHTML =
-    Array.from(keywords).sort().map(k => `<label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>`).join("");
+    fixedCategories.map(c => {
+    const iconClass = getIconForCategory(c);
+    return `<label>
+      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+      <i class="fas ${iconClass}" style="margin-right:6px;"></i> ${c}
+    </label><br>`;
+  }).join("");
 }
 
 function showDetails(ev, year) {
