@@ -371,3 +371,18 @@ nav a:hover i {
   background: #fff59d !important; /* Jaune clair */
   font-weight: bold;
 }
+.nav-btn {
+  background-color: #007bff; /* bleu */
+  color: white;              /* texte blanc */
+  border: none;
+  padding: 8px 14px;
+  margin: 0 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-btn:hover {
+  background-color: #0056b3; /* bleu foncé au survol */
+}
