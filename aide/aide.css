@@ -7,7 +7,11 @@ body {
   display: flex;
   flex-direction: column;
 }
-
+.content {
+  margin: 0 auto;
+  max-width: 1200px; /* ou ce que tu veux */
+  padding: 20px;
+}
 .page-container {
   flex: 1;
   display: flex;
