@@ -187,6 +187,9 @@ function updateTimeline() {
           style="background:${color}" 
           title="${ev.subject}"></span> 
     ${ev.name}
+${ev.start && ev.end && ev.start !== ev.end
+  ? ` <em>(${ev.start}–${ev.end})</em> <span class="multi-year-badge">Pluriannuel</span>`
+  : ''}
   </li>`;
   }).join("") + "</ul>";
 
