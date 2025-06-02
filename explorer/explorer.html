@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer 6- Paana</title>
+  <title>Explorer 6 - Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -31,8 +31,7 @@
 
   <div class="layout-3col">
     <div class="left-col">
-
-            <div class="filters">
+      <div class="filters">
         <h3 class="filters-title">Trier les événements par :</h3>
 
         <div class="dropdown-checkbox">
@@ -50,19 +49,19 @@
 
         <div class="dropdown-checkbox">
           <p class="filter-label">
-            Mots-clés (issu du DeCS)
+            Mots-clés (issus du DeCS)
             <sup><a href="https://decs.bvsalud.org/fr/" target="_blank" style="text-decoration: none; color: #007b7f;">ℹ️</a></sup>
           </p>
           <div id="keywordDropdown"></div>
         </div>
 
         <input type="text" id="searchInput" placeholder="Recherche globale..." oninput="updateTimeline()">
-       
+
         <div id="active-filters-section" style="display: none; margin-top: 20px;">
-        <p><strong>Filtres sélectionnés :</strong></p>
-        <div id="active-filters"></div>
+          <p><strong>Filtres sélectionnés :</strong></p>
+          <div id="active-filters"></div>
         </div>
-        
+
         <button class="reset-btn" onclick="resetFilters()">Réinitialiser</button>
       </div>
     </div>
@@ -71,15 +70,15 @@
       <div class="timeline" id="timeline"></div>
     </div>
 
-<div class="right-col">
-  <div class="event-details">
-    <div id="event-details-container"></div>
-    <div style="margin-top: 10px;">
-      <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
-      <button onclick="navigateEvent(1)">Événement suivant ➡</button>
+    <div class="right-col">
+      <div class="event-details">
+        <div id="event-details-container"></div>
+        <div style="margin-top: 10px;">
+          <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
+          <button onclick="navigateEvent(1)">Événement suivant ➡</button>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
   </div>
 
   <footer class="footer">
