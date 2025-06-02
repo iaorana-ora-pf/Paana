@@ -240,47 +240,45 @@ function updateDetails(ev, year) {
   ).join("<br>");
 
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
+const isMulti = ev.start && ev.end && ev.start !== ev.end;
+const subjectColor = getColorForSubject(ev.subject);
 
-  container.innerHTML = `
-    container.innerHTML = `
-  <h2>${ev.name}</h2>
-  <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
+// 🔹 Nom
+const nameHTML = `<h2>${ev.name}</h2>`;
 
-  <p><strong>Catégorie(s) :</strong><br>
-    ${(Array.isArray(ev.category) ? ev.category : [ev.category])
-      .map(cat => `<span>${cat} <i class="fas ${getIconForCategory(cat)}" title="${cat}"></i></span>`)
-      .join("<br>")}
-  </p>
+// 🔹 Période
+const periodHTML = `<p><strong>${isMulti ? `Période : ${ev.start} – ${ev.end}` : `Année : ${year}`}</strong></p>`;
 
-  <p><strong>Sujet :</strong> ${ev.subject}
-    <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span>
-  </p>
+// 🔹 Catégories (en liste)
+const categories = Array.isArray(ev.category) ? ev.category : [ev.category];
+const categoryHTML = `<p><strong>Catégorie(s) :</strong><br>${categories.map(cat => `<span>${cat} <i class="fas ${getIconForCategory(cat)}"></i></span>`).join("<br>")}</p>`;
 
-  <p><strong>Mots-clés :</strong><br>
-    ${(ev.keywords || []).map(k => `• ${k}`).join("<br>")}
-  </p>
+// 🔹 Sujet
+const subjectHTML = `<p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>`;
 
-  <p><strong>Description :</strong><br>
-    ${ev.description || "N/A"}
-  </p>
+// 🔹 Mots-clés
+const keywordsHTML = `<p><strong>Mots-clés :</strong><br>${(ev.keywords || []).map(k => `• ${k}`).join("<br>")}</p>`;
 
-  <p><strong>Sources :</strong><br>
-    ${(ev.sources || []).map(src =>
-      src.startsWith("http")
-        ? `<a href="${src}" target="_blank">${src}</a>`
-        : src
-    ).join("<br>") || "N/A"}
-  </p>
+// 🔹 Description
+const descriptionHTML = `<p><strong>Description :</strong><br>${ev.description || "N/A"}</p>`;
 
-  ${ev.attachments && ev.attachments.length ? `
-    <p><strong>Pièces jointes :</strong><br>
-      ${ev.attachments.map(att =>
-        att.startsWith("http")
-          ? `<a href="${att}" target="_blank">${att}</a>`
-          : att
-      ).join("<br>")}
-    </p>` : ""}
+// 🔹 Sources (liens ou texte)
+const formattedSources = (ev.sources || []).map(src =>
+  src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
+).join("<br>");
+const sourcesHTML = `<p><strong>Sources :</strong><br>${formattedSources || "N/A"}</p>`;
+
+// 🔹 Affichage final
+container.innerHTML = `
+  ${nameHTML}
+  ${periodHTML}
+  ${categoryHTML}
+  ${subjectHTML}
+  ${keywordsHTML}
+  ${descriptionHTML}
+  ${sourcesHTML}
 `;
+  
 
   // Met à jour la surbrillance dans la frise
   document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
