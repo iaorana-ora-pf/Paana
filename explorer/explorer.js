@@ -242,14 +242,45 @@ function updateDetails(ev, year) {
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
   container.innerHTML = `
-    <h2>${ev.name}</h2>
-    <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-    <p><strong>Catégorie(s) :</strong><ul>${categoryHTML}</ul></p>
-    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
-    <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
-    <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
-    <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
-  `;
+    container.innerHTML = `
+  <h2>${ev.name}</h2>
+  <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
+
+  <p><strong>Catégorie(s) :</strong><br>
+    ${(Array.isArray(ev.category) ? ev.category : [ev.category])
+      .map(cat => `<span>${cat} <i class="fas ${getIconForCategory(cat)}" title="${cat}"></i></span>`)
+      .join("<br>")}
+  </p>
+
+  <p><strong>Sujet :</strong> ${ev.subject}
+    <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span>
+  </p>
+
+  <p><strong>Mots-clés :</strong><br>
+    ${(ev.keywords || []).map(k => `• ${k}`).join("<br>")}
+  </p>
+
+  <p><strong>Description :</strong><br>
+    ${ev.description || "N/A"}
+  </p>
+
+  <p><strong>Sources :</strong><br>
+    ${(ev.sources || []).map(src =>
+      src.startsWith("http")
+        ? `<a href="${src}" target="_blank">${src}</a>`
+        : src
+    ).join("<br>") || "N/A"}
+  </p>
+
+  ${ev.attachments && ev.attachments.length ? `
+    <p><strong>Pièces jointes :</strong><br>
+      ${ev.attachments.map(att =>
+        att.startsWith("http")
+          ? `<a href="${att}" target="_blank">${att}</a>`
+          : att
+      ).join("<br>")}
+    </p>` : ""}
+`;
 
   // Met à jour la surbrillance dans la frise
   document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
