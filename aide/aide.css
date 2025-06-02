@@ -99,8 +99,8 @@ h1 {
   font-size: 2rem;
   color: #007b7f;         /* Bleu Paana */
   font-weight: bold;
+   text-decoration: none;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #fee58c;
   padding-bottom: 0.5rem;
 }
 
