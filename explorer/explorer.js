@@ -265,11 +265,15 @@ function collectFilteredEvents() {
   Array.isArray(e.category)
     ? e.category.some(cat => filters.categories.includes(cat))
     : filters.categories.includes(e.category)
-))
+)) &&
       (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
         e.name.toLowerCase().includes(filters.search) ||
+(Array.isArray(e.category)
+  ? e.category.join(", ").toLowerCase()
+  : e.category.toLowerCase()
+).includes(filters.search) ||
         e.category.toLowerCase().includes(filters.search) ||
         e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
