@@ -138,6 +138,12 @@ h4 {
   margin-top: 1rem;
   margin-bottom: 0rem;
 }
+
+ul {
+  margin-top: 8px;
+  margin-bottom: 16px; /* tu peux ajuster si la liste est trop espacée en bas */
+}
+
 .fesp-table {
   width: 100%;
   border-collapse: collapse;
