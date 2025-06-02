@@ -207,7 +207,7 @@ function showDetails(ev, year) {
 }
 
 function updateDetails(ev, year) {
-  const container = document.getElementById("detail-title");
+  const container = document.getElementById("event-details-container");
 
 const isMulti = ev.start && ev.end && ev.start !== ev.end;
 const periodLabel = isMulti ? `Période : ${ev.start} - ${ev.end}` : `Année : ${year}`;
