@@ -209,7 +209,7 @@ function showDetails(ev, year) {
 function updateDetails(ev, year) {
   const container = document.getElementById("event-details-container");
 
-const isMulti = ev.start && ev.end && ev.start !== ev.end;
+
 const periodLabel = isMulti ? `Période : ${ev.start} - ${ev.end}` : `Année : ${year}`;
 
 const categoryIcon = getIconForCategory(ev.category);
@@ -224,7 +224,7 @@ const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
 container.innerHTML = `
   <h2>${ev.name}</h2>
-  <p><strong>Période :</strong> ${ev.start} – ${ev.end}</p>
+  <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
   <p><strong>Catégorie(s) :</strong> ${ev.category} <i class="fas ${categoryIcon}" title="${ev.category}"></i></p>
   <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
   <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
