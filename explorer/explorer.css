@@ -96,10 +96,14 @@ nav a:hover i {
 
 /* === RESPONSIVE === */
 @media (max-width: 600px) {
+   #timeline {
+    grid-template-columns: 1fr;
+  }
   header {
     flex-direction: column;
     align-items: flex-start;
   }
+}
 
   nav {
     width: 100%;
@@ -153,10 +157,11 @@ nav a:hover i {
 }
 .year-block {
   background: #fff;
-  border: 1px solid #ccc;
   padding: 10px;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  text-align: left;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+  min-height: 150px;
 }
 .year-block li {
   background: #e0e0e0;
