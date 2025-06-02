@@ -174,7 +174,10 @@ function updateTimeline() {
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
         e.name.toLowerCase().includes(filters.search) ||
-        e.category.toLowerCase().includes(filters.search) ||
+        (Array.isArray(e.category) 
+  ? e.category.join(", ").toLowerCase() 
+  : e.category.toLowerCase()
+).includes(filters.search) ||
         e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
       ))
@@ -349,7 +352,9 @@ function updateDependentFilters() {
     const matchCategory = checkedCategories.length === 0 || (
   Array.isArray(event.category)
     ? event.category.some(cat => checkedCategories.includes(cat))
-    : checkedCategories.includes(event.category)
+    : (Array.isArray(event.category) 
+  ? event.category.some(cat => checkedCategories.includes(cat)) 
+  : checkedCategories.includes(event.category))
 );
     const matchKeyword = checkedKeywords.length === 0 || event.keywords.some(k => checkedKeywords.includes(k));
     const matchSubject = checkedSubjects.length === 0 || checkedSubjects.includes(event.subject);
