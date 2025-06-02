@@ -121,7 +121,7 @@ nav a:hover i {
     grid-template-rows: auto auto auto;
   }
 
-  .left-col, .center-col, .right-col {
+.left-col, .center-col, .right-col {
     height: auto;
   }
 }
@@ -376,17 +376,16 @@ nav a:hover i {
   font-weight: bold;
 }
 .nav-btn {
-  background-color: #007bff; /* bleu */
+  background-color: #007b7f;
   color: white;              /* texte blanc */
   border: none;
-  padding: 8px 14px;
+  padding: 8px 12px;
   margin: 0 4px;
   border-radius: 4px;
-  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 }
 
 .nav-btn:hover {
-  background-color: #0056b3; /* bleu foncé au survol */
+  background-color: #fff3b0; /* bleu foncé au survol */
 }
