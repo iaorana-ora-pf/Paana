@@ -231,7 +231,7 @@ function updateDetails(ev, year) {
 
   const isMulti = ev.start && ev.end && ev.start !== ev.end;
  const categoryHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
-  .map(cat => `<li>${cat} <i class="fas ${getIconForCategory(cat)}" title="${cat}"></i></li>`)
+  .map(cat => `<li><i class="fas ${getIconForCategory(cat)}" style="margin-right:6px;"></i> ${cat}</li>`)
   .join("");
   const subjectColor = getColorForSubject(ev.subject);
 
@@ -244,7 +244,12 @@ function updateDetails(ev, year) {
   container.innerHTML = `
     <h2 style="color:#007b7f; font-size: 1.8em;">${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-    <p><strong>Catégorie(s) :</strong><ul>${categoryHTML}</ul></p>
+    <div>
+  <strong>Catégorie(s) :</strong>
+  <ul style="list-style: none; padding-left: 0; margin-top: 4px;">
+    ${categoryHTML}
+  </ul>
+</div>
     <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
     <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
     <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
