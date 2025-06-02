@@ -185,17 +185,19 @@ function updateTimeline() {
       const id = `event-${year}-${i}`;
       window[id] = ev;
 
-      const iconClass = getIconForCategory(ev.category);
+      const categoryIconsHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
+  .map(cat => `<i class="fas ${getIconForCategory(cat)}" title="${cat}" style="margin-right:4px; color:#007b7f;"></i>`)
+  .join("");
       const color = getColorForSubject(ev.subject);
       const isMultiYear = ev.start && ev.end && ev.start !== ev.end;
 
-      return `
-        <li data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
-          <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;" title="${ev.category}"></i>
-          <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
-           <span>${ev.name}</span>
-           ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
-        </div>`;
+     return `
+  <li data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
+    ${categoryIconsHTML}
+    <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
+    <span>${ev.name}</span>
+    ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
+  </li>`;
     }).join("")}
   </div>
 `;
