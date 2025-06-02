@@ -227,9 +227,9 @@ const keywordsHTML = (ev.keywords || []).map(k =>
 
 container.innerHTML = `
   <h2>${ev.name}</h2>
-  <p><strong>${periodLabel}</strong></p>
-  <p><strong><i class="fas ${categoryIcon}" title="${ev.category}"></i> Catégorie :</strong> ${ev.category}</p>
-  <p><strong><span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-right:4px;"></span> Sujet :</strong> ${ev.subject}</p>
+  <p><strong>Période :</strong> ${ev.start} – ${ev.end}</p>
+  <p><strong>Catégorie(s) :</strong> ${ev.category} <i class="fas ${categoryIcon}" title="${ev.category}"></i></p>
+  <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
   <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
   <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
   <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
