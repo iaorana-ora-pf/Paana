@@ -195,13 +195,18 @@ function updateTimeline() {
   .join("");
       const color = getColorForSubject(ev.subject);
       const isMultiYear = ev.start && ev.end && ev.start !== ev.end;
+const isContext = Array.isArray(ev.category)
+  ? ev.category.includes("Contexte")
+  : ev.category === "Contexte";
 
-     return `
-  <li data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
+const contextClass = isContext ? "context-event" : "";
+   return `
+  <li class="${contextClass}" data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
     ${categoryIconsHTML}
     <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
     <span>${ev.name}</span>
     ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
+  </li>`;iYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
   </li>`;
     }).join("")}
   </div>
