@@ -65,9 +65,9 @@ function expandMultiYearEvents(data) {
       const end = parseInt(ev.end || year);
       for (let y = start; y <= end; y++) {
         const yStr = y.toString();
-        if (!expanded[yStr]) expanded[yStr] = [];
-        expanded[yStr].push({ ...ev });
-      }
+        if (!expanded[yStr].some(e => e.name === event.name)) {
+  expanded[yStr].push({ ...event });
+}
     });
   }
   return expanded;
