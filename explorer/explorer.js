@@ -223,7 +223,9 @@ function updateDetails(ev, year) {
   }
 
   const isMulti = ev.start && ev.end && ev.start !== ev.end;
-  const categoryIcon = getIconForCategory(ev.category);
+  const categoryHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
+  .map(cat => `${cat} <i class="fas ${getIconForCategory(cat)}" title="${cat}"></i>`)
+  .join(", ");
   const subjectColor = getColorForSubject(ev.subject);
 
   const formattedSources = (ev.sources || []).map(src =>
@@ -235,7 +237,7 @@ function updateDetails(ev, year) {
   container.innerHTML = `
     <h2>${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-    <p><strong>Catégorie(s) :</strong> ${ev.category} <i class="fas ${categoryIcon}" title="${ev.category}"></i></p>
+    <p><strong>Catégorie(s) :</strong> ${categoryHTML}</p>
     <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
     <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
     <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
@@ -259,7 +261,11 @@ function collectFilteredEvents() {
   const filters = getFilters();
   return Object.entries(events).flatMap(([year, list]) =>
     list.filter(e =>
-      (!filters.categories.length || filters.categories.includes(e.category)) &&
+      (!filters.categories.length || (
+  Array.isArray(e.category)
+    ? e.category.some(cat => filters.categories.includes(cat))
+    : filters.categories.includes(e.category)
+))
       (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
@@ -280,7 +286,7 @@ function initDropdowns() {
   Object.values(events).flat().forEach(e => {
     subjects.add(e.subject);
     e.keywords.forEach(k => keywords.add(k));
-    categories.add(e.category);
+    (Array.isArray(e.category) ? e.category : [e.category]).forEach(cat => categories.add(cat));
   });
 document.getElementById("categoryDropdown").innerHTML =
   Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => {
@@ -336,7 +342,7 @@ function updateDependentFilters() {
     if (matchCategory && matchKeyword && matchSubject) {
       visibleSubjects.add(event.subject);
       event.keywords.forEach(k => visibleKeywords.add(k));
-      visibleCategories.add(event.category);
+      (Array.isArray(event.category) ? event.category : [event.category]).forEach(cat => visibleCategories.add(cat));
     }
   });
 
