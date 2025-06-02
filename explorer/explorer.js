@@ -170,28 +170,25 @@ function updateTimeline() {
     if (filtered.length) {
       const block = document.createElement("div");
       block.className = "year-block";
-      block.innerHTML = "<h3>" + year + "</h3><ul>" + 
-  filtered.map((ev, i) => {
-    const id = `event-${year}-${i}`;
-    window[id] = ev;
+      block.innerHTML = `
+  <h3>${year}</h3>
+  <div class="event-grid">
+    ${filtered.map((ev, i) => {
+      const id = `event-${year}-${i}`;
+      window[id] = ev;
 
-    const iconClass = getIconForCategory(ev.category);
-    const color = getColorForSubject(ev.subject);
+      const iconClass = getIconForCategory(ev.category);
+      const color = getColorForSubject(ev.subject);
 
-   return `
-  <li onclick='showDetails(window["${id}"], "${year}")'>
-    <i class="fas ${iconClass}" 
-       style="margin-right:6px; color:#007b7f;" 
-       title="${ev.category}"></i>
-    <span class="color-box" 
-          style="background:${color}" 
-          title="${ev.subject}"></span> 
-    ${ev.name}
-${ev.start && ev.end && ev.start !== ev.end
-  ? ` <span class="multi-year-badge">Pluriannuel</span>`
-  : ''}
-  </li>`;
-  }).join("") + "</ul>";
+      return `
+        <div class="event-item" onclick='showDetails(window["${id}"], "${year}")'>
+          <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;" title="${ev.category}"></i>
+          <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
+          ${ev.name}
+        </div>`;
+    }).join("")}
+  </div>
+`;
 
       
       container.appendChild(block);
