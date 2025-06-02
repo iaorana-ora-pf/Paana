@@ -5,13 +5,34 @@ let currentIndex = -1;
 fetch('./explorer.json')
   .then(response => response.json())
   .then(data => {
-    events = data;
+    events = expandMultiYearEvents(data);
     initDropdowns();
     updateTimeline();
   })
   .catch(error => {
     console.error("Erreur lors du chargement des événements :", error);
   });
+
+function expandMultiYearEvents(data) {
+  const expanded = {};
+
+  for (const year in data) {
+    data[year].forEach(event => {
+      const start = parseInt(event.start || year);
+      const end = parseInt(event.end || year);
+
+      for (let y = start; y <= end; y++) {
+        const yStr = y.toString();
+        if (!expanded[yStr]) expanded[yStr] = [];
+        
+        // Ajoute une copie de l’événement
+        expanded[yStr].push({ ...event });
+      }
+    });
+  }
+
+  return expanded;
+}
 
 function toggleDropdown(id) {
   const el = document.getElementById(id);
