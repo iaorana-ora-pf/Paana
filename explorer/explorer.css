@@ -412,3 +412,32 @@ nav a:hover i {
 .event-arrows button:hover {
   background-color: #0056b3;
 }
+.aide-encart {
+  background-color: #f0f0f0;
+  color: #333;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 30px 20px 0 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.aide-encart i {
+  color: #007b7f;
+  font-size: 1.5em;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.aide-encart .aide-lien {
+  display: block;
+  margin-top: 10px;
+  color: #007b7f;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.aide-encart .aide-lien:hover {
+  text-decoration: underline;
+}
