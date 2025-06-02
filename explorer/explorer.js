@@ -121,11 +121,13 @@ function updateTimeline() {
       const block = document.createElement("div");
       block.className = "year-block";
       block.innerHTML = "<h3>" + year + "</h3><ul>" + 
-        filtered.map(ev => {
-          return `<li onclick='showDetails(${JSON.stringify(ev)}, ${year})'>
-                    <span class="color-box" style="background:#ccc"></span> ${ev.name}
-                  </li>`;
-        }).join("") + "</ul>";
+  filtered.map((ev, i) => {
+    const id = `event-${year}-${i}`;
+    window[id] = ev; // Stocke temporairement l'objet JS dans le scope global
+    return `<li onclick='showDetails(window["${id}"], "${year}")'>
+              <span class="color-box" style="background:#ccc"></span> ${ev.name}
+            </li>`;
+  }).join("") + "</ul>";
       container.appendChild(block);
     }
   }
