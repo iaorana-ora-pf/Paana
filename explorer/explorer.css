@@ -148,11 +148,16 @@ nav a:hover i {
 }
 #timeline {
   display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 🔧 3 colonnes fixes */
+  grid-template-columns: repeat(1, 1fr); /* 🔧 3 colonnes fixes */
   gap: 20px;
   padding: 1rem;
   max-width: 1600px;
   margin: 0 auto;
+}
+@media (max-width: 768px) {
+  #timeline {
+    grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
+  }
 }
 .year-block {
   background: #fff;
