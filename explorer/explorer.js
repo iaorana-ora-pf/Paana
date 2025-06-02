@@ -240,7 +240,6 @@ function updateDetails(ev, year) {
   ).join("<br>");
 
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
-const subjectColor = getColorForSubject(ev.subject);
 
 // 🔹 Nom
 const nameHTML = `<h2>${ev.name}</h2>`;
