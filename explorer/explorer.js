@@ -65,8 +65,10 @@ function expandMultiYearEvents(data) {
       const end = parseInt(ev.end || year);
       for (let y = start; y <= end; y++) {
         const yStr = y.toString();
-        if (!expanded[yStr].some(e => e.name === event.name)) {
-  expanded[yStr].push({ ...event });
+        if (!expanded[yStr]) expanded[yStr] = [];
+const key = `${ev.name}-${ev.start || year}-${ev.end || year}`;
+if (!expanded[yStr].some(e => `${e.name}-${e.start || year}-${e.end || year}` === key)) {
+  expanded[yStr].push({ ...ev });
 }
     };
   }
@@ -162,7 +164,13 @@ function initDropdowns() {
   Object.values(events).flat().forEach(e => {
     subjects.add(e.subject);
     e.keywords.forEach(k => keywords.add(k));
-    fixedCategories.forEach(cat => categories.add(cat));
+    Object.values(events).flat().forEach(e => {
+  if (Array.isArray(e.category)) {
+    e.category.forEach(cat => categories.add(cat));
+  } else {
+    categories.add(e.category);
+  }
+});
   });
 
   document.getElementById("categoryDropdown").innerHTML =
@@ -173,6 +181,18 @@ function initDropdowns() {
       <i class="fas ${iconClass}" style="margin-right:6px;"></i> ${c}
     </label><br>`;
   }).join("");
+
+  document.getElementById("subjectDropdown").innerHTML =
+  Array.from(subjects).map(s => {
+    const color = getColorForSubject(s);
+    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+      <span class="color-box" style="background:${color}; margin-right:6px;"></span> ${s}</label><br>`;
+  }).join("");
+
+document.getElementById("keywordDropdown").innerHTML =
+  Array.from(keywords).map(k => `
+    <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>
+  `).join("");
 }
 
 function showDetails(ev, year) {
@@ -203,7 +223,7 @@ function navigateEvent(dir) {
   if (currentEvents.length === 0 || currentIndex === -1) return;
   currentIndex = (currentIndex + dir + currentEvents.length) % currentEvents.length;
   const next = currentEvents[currentIndex];
-  updateDetails(next, Object.keys(events).find(year => events[year].some(e => e.name === next.name)));
+  showDetails(next, Object.keys(events).find(year => events[year].some(e => e.name === next.name)));
 }
 
 function collectFilteredEvents() {
