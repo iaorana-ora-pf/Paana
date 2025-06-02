@@ -207,8 +207,33 @@ function showDetails(ev, year) {
 }
 
 function updateDetails(ev, year) {
-  const detailContainer = document.getElementById("detail-title");
-  detailContainer.innerText = ev.name;
+  const container = document.getElementById("detail-title");
+
+const isMulti = ev.start && ev.end && ev.start !== ev.end;
+const periodLabel = isMulti ? `Période : ${ev.start} - ${ev.end}` : `Année : ${year}`;
+
+const categoryIcon = getIconForCategory(ev.category);
+const subjectColor = getColorForSubject(ev.subject);
+
+// Formatage des sources en texte ou lien
+const formattedSources = (ev.sources || []).map(src =>
+  src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
+).join("<br>");
+
+// Formatage des mots-clés avec icône
+const keywordsHTML = (ev.keywords || []).map(k =>
+  `<span class="color-box" title="${k}" style="background:${subjectColor}; margin-right:4px;"></span> ${k}`
+).join("<br>");
+
+container.innerHTML = `
+  <h2>${ev.name}</h2>
+  <p><strong>${periodLabel}</strong></p>
+  <p><strong><i class="fas ${categoryIcon}" title="${ev.category}"></i> Catégorie :</strong> ${ev.category}</p>
+  <p><strong><span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-right:4px;"></span> Sujet :</strong> ${ev.subject}</p>
+  <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
+  <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
+  <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
+`;
 
   // Supprime la surbrillance de tous les événements
   document.querySelectorAll(".year-block li").forEach(li => {
