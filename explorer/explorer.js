@@ -1,135 +1,372 @@
 
-let events = {};
-let currentEvents = [];
-let currentIndex = -1;
-
-const categoryIcons = new Map();
-const subjectColors = new Map();
-
-const availableIcons = [
-  "fa-landmark", "fa-shield-alt", "fa-lightbulb", "fa-database", 
-  "fa-leaf", "fa-heart-pulse", "fa-globe", "fa-users", "fa-scale-balanced"
-];
-let iconIndex = 0;
-
-function generateColor() {
-  const hue = Math.floor(Math.random() * 360);
-  return `hsl(${hue}, 60%, 60%)`;
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9; 
+  margin: 0; 
+ overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
-function getIconForCategory(cat) {
-  if (categoryIcons.has(cat)) return categoryIcons.get(cat);
-  const stored = localStorage.getItem("icon-" + cat);
-  if (stored) {
-    categoryIcons.set(cat, stored);
-    return stored;
-  }
-  const icon = availableIcons[iconIndex % availableIcons.length];
-  iconIndex++;
-  categoryIcons.set(cat, icon);
-  localStorage.setItem("icon-" + cat, icon);
-  return icon;
+.page-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
-function getColorForSubject(subject) {
-  if (subjectColors.has(subject)) return subjectColors.get(subject);
-  const stored = localStorage.getItem("color-" + subject);
-  if (stored) {
-    subjectColors.set(subject, stored);
-    return stored;
-  }
-  const color = generateColor();
-  subjectColors.set(subject, color);
-  localStorage.setItem("color-" + subject, color);
-  return color;
+main {
+  flex: 1; /* pousse le footer vers le bas */
+}
+/* === HEADER GLOBAL === */
+header {
+  background-color: #007b7f;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: #fdfdf0;
 }
 
-fetch('./explorer.json')
-  .then(response => response.json())
-  .then(data => {
-    events = expandMultiYearEvents(data);
-    initDropdowns();
-    updateTimeline();
-    document.getElementById("event-details-container").innerHTML = `
-      <p style="text-align: center; font-style: italic; color: #555;">
-        Cliquez sur un événement pour accéder à sa fiche détaillée.
-      </p>
-    `;
-  })
-  .catch(error => {
-    console.error("Erreur lors du chargement des événements :", error);
-  });
-
-function expandMultiYearEvents(data) {
-  const expanded = {};
-  for (const year in data) {
-    data[year].forEach(event => {
-      const start = parseInt(event.start || year);
-      const end = parseInt(event.end || year);
-      for (let y = start; y <= end; y++) {
-        const yStr = y.toString();
-        if (!expanded[yStr]) expanded[yStr] = [];
-        expanded[yStr].push({ ...event });
-      }
-    });
-  }
-  return expanded;
+/* === FOOTER === */
+.footer {
+  text-align: center !important;
+  padding: 20px;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #666666;
 }
 
-function updateTimeline() {
-  const container = document.getElementById("timeline");
-  container.innerHTML = "";
-  const filters = getFilters();
+.footer p {
+  margin: 0;
+  line-height: 1.6;
+  font-size: inherit;
+  color: inherit;
+}
 
-  for (const year in events) {
-    const filtered = events[year].filter(e =>
-      (!filters.categories.length || (
-        Array.isArray(e.category)
-          ? e.category.some(cat => filters.categories.includes(cat))
-          : filters.categories.includes(e.category)
-      )) &&
-      (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
-      (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
-      (!filters.search || (
-        e.name.toLowerCase().includes(filters.search) ||
-        (Array.isArray(e.category)
-          ? e.category.join(", ").toLowerCase()
-          : e.category.toLowerCase()
-        ).includes(filters.search) ||
-        e.subject.toLowerCase().includes(filters.search) ||
-        e.keywords.some(k => k.toLowerCase().includes(filters.search))
-      ))
-    );
+/* === LOGO & NOM === */
+.logo {
+  color: #fdfdf0;
+}
 
-    if (filtered.length) {
-      const eventsHTML = filtered.map((ev, i) => {
-        const id = `event-${year}-${i}`;
-        window[id] = ev;
-        const categoryIconsHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
-          .map(cat => `<i class="fas ${getIconForCategory(cat)}" title="${cat}" style="margin-right:4px; color:#007b7f;"></i>`)
-          .join("");
-        const color = getColorForSubject(ev.subject);
-        const isMultiYear = ev.start && ev.end && ev.start !== ev.end;
-        return `
-          <li data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
-            ${categoryIconsHTML}
-            <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
-            <span>${ev.name}</span>
-            ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
-          </li>`;
-      }).join("");
+.logo .brand {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
 
-      const block = document.createElement("div");
-      block.className = "year-block";
-      block.innerHTML = `
-        <h3>${year}</h3>
-        <div class="event-grid">
-          ${eventsHTML}
-        </div>
-      `;
-      container.appendChild(block);
-    }
+.logo .trait {
+  height: 12px;
+  background-color: #fee58c;
+  width: 100px;
+  margin: 10px 0;
+}
+
+/* === NAVIGATION === */
+nav {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  text-decoration: none;
+  background-color: #fdfdf0;
+  color: #271923;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+nav a:hover,
+nav a.active {
+  background-color: #fee58c;
+  transform: scale(1.05);
+}
+
+nav a i {
+  color: #271923;
+  font-weight: normal;
+}
+
+nav a:hover i {
+  color: #000;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 1rem;
   }
-  updateDependentFilters();
-  updateActiveFilterBadges();
+}
+.layout-3col {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /* ✅ proportions flexibles */
+  gap: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .layout-3col {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .left-col, .center-col, .right-col {
+    height: auto;
+  }
+}
+.left-col, .center-col, .right-col {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+.left-col { background: #f0f0f0; }
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.dropdown-checkbox div {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  position: relative;
+  max-height: 80px;
+  overflow-y: auto;
+  margin-top: 5px;
+}
+.dropdown-checkbox button {
+  padding: 8px;
+  font-size: 1rem;
+  font-family: 'Segoe UI';
+  font-weight: bold;
+  color: #fdfdf0;
+  background-color: #007b7f;
+  border-radius: 5px;
+  border: none;
+}
+#timeline {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 🔧 3 colonnes fixes */
+  gap: 20px;
+  padding: 1rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  #timeline {
+    grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
+  }
+}
+.year-block {
+  background: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.05);
+  min-height: 150px;
+}
+.year-block li {
+  background: #e0e0e0;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.year-block li:hover {
+  background: #dce775;
+}
+.event-details {
+  border: 2px solid #000;
+  border-radius: 10px;
+  padding: 20px;
+}
+.color-box {
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:2px;
+}
+
+/* Icones */
+
+.info-icon {
+  cursor: pointer;
+  position: relative;
+  font-size: 0.9em;
+  vertical-align: super;
+  color: #007b7f;
+  text-decoration: none;
+}
+
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  background: #333;
+  color: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  width: 200px;
+  z-index: 100;
+  font-size: 0.8rem;
+  }
+
+.info-icon:hover .tooltip {
+  display: block;
+}
+
+/* Filtres */
+.filters-title {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: #007b7f;
+  text-align: center;
+  margin-top: 10px;
+}
+.filter-label {
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+  color: #007b7f;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.active-filters {
+  display: flex;
+  flex-wrap: wrap;
+ gap: 8px;
+ margin-bottom: 15px;
+ padding: 10px 0;
+ }
+
+.filters-active-title {
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  color: #007b7f;
+  margin-bottom: 8px;
+}
+
+.filter-badge button {
+  background: none;
+  border: none;
+  color: #fdfdf0;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.remove-badge {
+  margin-left: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fdfdf0;
+}
+.remove-badge:hover {
+  color: #ffcccc;
+}
+
+.filter-badge {
+  display: inline-block;
+  background-color: #007b7f;
+  color: #fdfdf0;
+  border-radius: 12px;
+  padding: 6px 10px;
+  margin: 4px 4px 8px 0;
+  font-size: 0.85em;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.filter-badge .remove-badge {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #fdfdf0;
+  font-weight: bold;
+}
+/* Zone RECHERCHE */
+#searchInput {
+  background-color: #ffffff;
+  color: #555555;
+  font-size: 1rem;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 20px;
+  width: 85%;
+}
+
+/* Texte gris dans le placeholder */
+#searchInput::placeholder {
+  color: #999999;
+  opacity: 1;
+}
+
+/* BOUTON Réinitialiser */
+.reset-btn {
+  background-color: #fff3b0;
+  color: #00587a;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  margin-top: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+}
+.multi-year-badge {
+   background-color: #cce5ff; /* plus clair qu’avant */
+  color: #004085;
+  font-size: 0.7em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 6px;
+  white-space: nowrap;
+}
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ✅ 2 colonnes */
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.event-item {
+  background: #e0e0e0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.event-item:hover {
+  background: #dce775;
+}
+@media (max-width: 600px) {
+  .event-grid {
+    grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
+  }
+}
+.selected-event {
+  background: #fff59d !important; /* Jaune clair */
+  font-weight: bold;
 }
