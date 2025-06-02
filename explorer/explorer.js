@@ -164,7 +164,12 @@ function updateTimeline() {
 
   for (const year in events) {
     const filtered = events[year].filter(e =>
-      (!filters.categories.length || filters.categories.includes(e.category)) &&
+      (!filters.categories.length || (
+  Array.isArray(e.category)
+    ? e.category.some(cat => filters.categories.includes(cat))
+    : filters.categories.includes(e.category)
+)
+ &&
       (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
@@ -341,7 +346,11 @@ function updateDependentFilters() {
 
   // Parcours des événements pour récupérer les éléments liés aux filtres actifs
   Object.values(events).flat().forEach(event => {
-    const matchCategory = checkedCategories.length === 0 || checkedCategories.includes(event.category);
+    const matchCategory = checkedCategories.length === 0 || (
+  Array.isArray(event.category)
+    ? event.category.some(cat => checkedCategories.includes(cat))
+    : checkedCategories.includes(event.category)
+);
     const matchKeyword = checkedKeywords.length === 0 || event.keywords.some(k => checkedKeywords.includes(k));
     const matchSubject = checkedSubjects.length === 0 || checkedSubjects.includes(event.subject);
 
