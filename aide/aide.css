@@ -119,7 +119,7 @@ h2 {
   text-decoration: underline;
   text-decoration-color: #fff3b0; /* Jaune clair */
   text-decoration-thickness: 3px;
-  text-underline-offset: 4px;
+  text-underline-offset: 6px;
 }
 /* Sous-sections */
 h3 {
