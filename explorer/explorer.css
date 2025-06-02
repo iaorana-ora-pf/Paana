@@ -109,11 +109,21 @@ nav a:hover i {
 }
 .layout-3col {
   display: grid;
-  grid-template-columns: 300px 1fr 400px;
+  grid-template-columns: 1fr 2fr 1fr; /* ✅ proportions flexibles */
   gap: 20px;
   height: 100vh;
   box-sizing: border-box;
   padding: 20px;
+}
+@media (max-width: 768px) {
+  .layout-3col {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .left-col, .center-col, .right-col {
+    height: auto;
+  }
 }
 .left-col, .center-col, .right-col {
   background: #fff;
