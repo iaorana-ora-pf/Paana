@@ -240,7 +240,6 @@ function updateDetails(ev, year) {
   ).join("<br>");
 
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
-const isMulti = ev.start && ev.end && ev.start !== ev.end;
 const subjectColor = getColorForSubject(ev.subject);
 
 // 🔹 Nom
