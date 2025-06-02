@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Explorer 1- Paana</title>
+  <title>Explorer 5- Paana</title>
   <meta name="description" content="Paana - Base de connaissances sur la santé publique en Polynésie française">
   <link rel="stylesheet" href="explorer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -71,14 +71,15 @@
       <div class="timeline" id="timeline"></div>
     </div>
 
-    <div class="right-col">
-      <div class="event-details" id="detail-title">
-          <div style="margin-top: 10px;">
-          <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
-          <button onclick="navigateEvent(1)">Événement suivant ➡</button>
-        </div>
-      </div>
+<div class="right-col">
+  <div class="event-details">
+    <div id="event-details-container"></div>
+    <div style="margin-top: 10px;">
+      <button onclick="navigateEvent(-1)">⬅ Événement précédent</button>
+      <button onclick="navigateEvent(1)">Événement suivant ➡</button>
     </div>
+  </div>
+</div>
   </div>
 
   <footer class="footer">
