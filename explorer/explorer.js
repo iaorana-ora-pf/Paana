@@ -182,7 +182,7 @@ function updateTimeline() {
       const isMultiYear = ev.start && ev.end && ev.start !== ev.end;
 
       return `
-        <div class="event-item" onclick='showDetails(window["${id}"], "${year}")'>
+        <li data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>
           <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;" title="${ev.category}"></i>
           <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
            <span>${ev.name}</span>
