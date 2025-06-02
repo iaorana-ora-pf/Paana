@@ -225,18 +225,15 @@
       "description": "Mobilisation massive pour la planète"
     }
   ],
-  "2020": [
-    {
-      "name": "Pandémie de COVID-19",
-      "category": "Protection",
-      "subject": "santé",
-      "keywords": [
-        "virus",
-        "pandémie"
-      ],
-      "description": "Crise sanitaire mondiale"
-    }
-     {
+"2020": [
+  {
+    "name": "Pandémie de COVID-19",
+    "category": "Protection",
+    "subject": "santé",
+    "keywords": ["virus", "pandémie"],
+    "description": "Crise sanitaire mondiale"
+  },
+  {
     "name": "Projet Climat 2020-2023",
     "category": "Écologie",
     "subject": "climat",
@@ -245,8 +242,8 @@
     "start": "2020",
     "end": "2023"
   }
-  ],
-  "2022": [
+],
+"2022": [
   {
     "name": "Plan Santé 2022-2025",
     "category": "Protection",
@@ -257,4 +254,3 @@
     "end": "2025"
   }
 ]
-}
