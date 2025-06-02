@@ -366,3 +366,7 @@ nav a:hover i {
     grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
   }
 }
+.selected-event {
+  background: #fff59d !important; /* Jaune clair */
+  font-weight: bold;
+}
