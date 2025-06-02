@@ -339,3 +339,29 @@ nav a:hover i {
   border-radius: 4px;
   margin-left: 6px;
 }
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ✅ 2 colonnes */
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.event-item {
+  background: #e0e0e0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.3s;
+}
+
+.event-item:hover {
+  background: #dce775;
+}
+@media (max-width: 600px) {
+  .event-grid {
+    grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
+  }
+}
