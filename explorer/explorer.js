@@ -274,22 +274,30 @@ function initDropdowns() {
     e.keywords.forEach(k => keywords.add(k));
     categories.add(e.category);
   });
-
+document.getElementById("categoryDropdown").innerHTML =
+  Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => {
+    const iconClass = getIconForCategory(c);
+    return `<label>
+      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+      <i class="fas ${iconClass}" style="margin-right:6px;"></i> ${c}
+    </label><br>`;
+  }).join("");
+  
 document.getElementById("subjectDropdown").innerHTML =
-    Array.from(subjects).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(s => `
-      <label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${s}</label><br>
-    `).join("");
+  Array.from(subjects).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(s => {
+    const color = getColorForSubject(s);
+    return `<label>
+      <input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+      <span class="color-box" style="background:${color}; margin-right:6px;"></span> ${s}
+    </label><br>`;
+  }).join("");
 
   document.getElementById("keywordDropdown").innerHTML =
     Array.from(keywords).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(k => `
       <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>
     `).join("");
 
-  document.getElementById("categoryDropdown").innerHTML =
-    Array.from(categories).sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })).map(c => `
-      <label><input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${c}</label><br>
-    `).join("");
-
+ 
 }
 
 function updateDependentFilters() {
