@@ -115,7 +115,7 @@ h2 {
   color: #007b7f;
   font-weight: bold;
   margin-top: 2rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0,5rem;
   text-decoration: underline;
   text-decoration-color: #fff3b0; /* Jaune clair */
   text-decoration-thickness: 3px;
@@ -127,7 +127,7 @@ h3 {
   font-weight: bold;
   color: #333;
   margin-top: 1.5rem;
-  margin-bottom: 0rem;
+  margin-bottom: 0,5rem;
 }
 
 /* Titres internes ou éléments secondaires */
@@ -140,8 +140,8 @@ h4 {
 }
 
 ul {
-  margin-top: 8px;
-  margin-bottom: 16px; /* tu peux ajuster si la liste est trop espacée en bas */
+  margin-top: 0rem;
+  margin-bottom: 0,5rem; /* tu peux ajuster si la liste est trop espacée en bas */
 }
 
 .fesp-table {
