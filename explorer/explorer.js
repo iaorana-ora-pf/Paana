@@ -179,12 +179,14 @@ function updateTimeline() {
 
       const iconClass = getIconForCategory(ev.category);
       const color = getColorForSubject(ev.subject);
+      const isMultiYear = ev.start && ev.end && ev.start !== ev.end;
 
       return `
         <div class="event-item" onclick='showDetails(window["${id}"], "${year}")'>
           <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;" title="${ev.category}"></i>
           <span class="color-box" style="background:${color}" title="${ev.subject}"></span> 
-          ${ev.name}
+           <span>${ev.name}</span>
+           ${isMultiYear ? `<span class="multi-year-badge">pluriannuel</span>` : ""}
         </div>`;
     }).join("")}
   </div>
