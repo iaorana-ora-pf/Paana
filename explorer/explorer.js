@@ -209,35 +209,33 @@ function showDetails(ev, year) {
 function updateDetails(ev, year) {
   const container = document.getElementById("event-details-container");
 
-const isMulti = ev.start && ev.end && ev.start !== ev.end;
-const periodLabel = isMulti ? `Période : ${ev.start} - ${ev.end}` : `Année : ${year}`;
+  if (!container) {
+    console.error("❌ Élément #event-details-container introuvable dans le HTML.");
+    return;
+  }
 
-const categoryIcon = getIconForCategory(ev.category);
-const subjectColor = getColorForSubject(ev.subject);
+  const isMulti = ev.start && ev.end && ev.start !== ev.end;
+  const categoryIcon = getIconForCategory(ev.category);
+  const subjectColor = getColorForSubject(ev.subject);
 
-// Formatage des sources en texte ou lien
-const formattedSources = (ev.sources || []).map(src =>
-  src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
-).join("<br>");
+  const formattedSources = (ev.sources || []).map(src =>
+    src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
+  ).join("<br>");
 
-const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
+  const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
-container.innerHTML = `
-  <h2>${ev.name}</h2>
-  <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
-  <p><strong>Catégorie(s) :</strong> ${ev.category} <i class="fas ${categoryIcon}" title="${ev.category}"></i></p>
-  <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
-  <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
-  <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
-  <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
-`;
+  container.innerHTML = `
+    <h2>${ev.name}</h2>
+    <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
+    <p><strong>Catégorie(s) :</strong> ${ev.category} <i class="fas ${categoryIcon}" title="${ev.category}"></i></p>
+    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
+    <p><strong>Mots-clés :</strong><br> ${keywordsHTML}</p>
+    <p><strong>Description :</strong><br> ${ev.description || "N/A"}</p>
+    <p><strong>Sources :</strong><br> ${formattedSources || "N/A"}</p>
+  `;
 
-  // Supprime la surbrillance de tous les événements
-  document.querySelectorAll(".year-block li").forEach(li => {
-    li.classList.remove("selected-event");
-  });
-
-  // Ajoute la surbrillance à celui qui est sélectionné
+  // Met à jour la surbrillance dans la frise
+  document.querySelectorAll(".year-block li").forEach(li => li.classList.remove("selected-event"));
   const selectedLi = document.querySelector(`li[data-uid="${ev.name}-${year}"]`);
   if (selectedLi) selectedLi.classList.add("selected-event");
 }
