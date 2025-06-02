@@ -164,8 +164,12 @@ function updateTimeline() {
 
     return `
       <li onclick='showDetails(window["${id}"], "${year}")'>
-        <i class="fas ${iconClass}" style="margin-right:6px; color:#007b7f;"></i>
-        <span class="color-box" style="background:${color}"></span> 
+        <i class="fas ${iconClass}" 
+        style="margin-right:6px; color:#007b7f;">
+        title="${ev.category}"></i>
+        <span class="color-box" 
+        style="background:${color}">
+         title="${ev.subject}"></span> 
         ${ev.name}
       </li>`;
   }).join("") + "</ul>";
