@@ -63,14 +63,14 @@ function expandMultiYearEvents(data) {
     data[year].forEach(ev => {
       const start = parseInt(ev.start || year);
       const end = parseInt(ev.end || year);
-      for (let y = start; y <= end; y++) {
-        const yStr = y.toString();
-        if (!expanded[yStr]) expanded[yStr] = [];
-const key = `${ev.name}-${ev.start || year}-${ev.end || year}`;
-if (!expanded[yStr].some(e => `${e.name}-${e.start || year}-${e.end || year}` === key)) {
-  expanded[yStr].push({ ...ev });
+  for (let y = start; y <= end; y++) {
+  const yStr = y.toString();
+  if (!expanded[yStr]) expanded[yStr] = [];
+  const key = `${ev.name}-${ev.start || year}-${ev.end || year}`;
+  if (!expanded[yStr].some(e => `${e.name}-${e.start || year}-${e.end || year}` === key)) {
+    expanded[yStr].push({ ...ev });
+  }
 }
-    };
   }
   return expanded;
 }
@@ -161,17 +161,11 @@ function initDropdowns() {
   const keywords = new Set();
   const categories = new Set();
 
-  Object.values(events).flat().forEach(e => {
-    subjects.add(e.subject);
-    e.keywords.forEach(k => keywords.add(k));
-    Object.values(events).flat().forEach(e => {
-  if (Array.isArray(e.category)) {
-    e.category.forEach(cat => categories.add(cat));
-  } else {
-    categories.add(e.category);
-  }
+ Object.values(events).flat().forEach(e => {
+  subjects.add(e.subject);
+  e.keywords.forEach(k => keywords.add(k));
+  (Array.isArray(e.category) ? e.category : [e.category]).forEach(cat => categories.add(cat));
 });
-  });
 
   document.getElementById("categoryDropdown").innerHTML =
     fixedCategories.map(c => {
