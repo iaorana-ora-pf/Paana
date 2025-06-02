@@ -1,257 +1,239 @@
 {
-  "1789": [
+  "1700": [
     {
-      "name": "Révolution française",
-      "category": "Gouvernance", 
-      "subject": "société",
-      "keywords": [
-        "droits",
-        "république"
-      ],
-      "description": "Fin de la monarchie absolue"
+      "name": "Premières données de santé à Tahiti",
+      "description": "Recensement des maladies locales par les missionnaires européens.",
+      "start": 1700,
+      "end": 1702,
+      "category": ["Histoire", "Épidémiologie"],
+      "subject": "Maladies infectieuses",
+      "keywords": ["paludisme", "missionnaires"],
+      "sources": ["https://example.com/tahiti1700"],
+      "attachments": ["dossier_historique.pdf"]
     }
   ],
-  "1791": [
+  "1805": [
     {
-      "name": "Constitution française",
-      "category": "Gouvernance",
-      "subject": "lois",
-      "keywords": [
-        "constitution",
-        "monarchie"
-      ],
-      "description": "Première constitution française"
+      "name": "Épidémie de variole",
+      "description": "Vague épidémique ayant touché plusieurs archipels.",
+      "start": 1805,
+      "category": ["Crise sanitaire"],
+      "subject": "Vaccination",
+      "keywords": ["variole", "immunisation"],
+      "sources": ["https://archive.org/variole-1805"],
+      "attachments": []
     }
   ],
-  "1848": [
+  "1840": [
     {
-      "name": "Abolition de l'esclavage en France",
-      "category": "Gouvernance",
-      "subject": "société",
-      "keywords": [
-        "droits",
-        "liberté"
-      ],
-      "description": "Fin de l'esclavage dans les colonies françaises"
+      "name": "Création du premier dispensaire",
+      "description": "Mise en place d’un accès aux soins dans les Îles du Vent.",
+      "start": 1840,
+      "category": ["Infrastructure", "Accès aux soins"],
+      "subject": "Santé publique",
+      "keywords": ["dispensaire", "soins primaires"],
+      "sources": [],
+      "attachments": ["photo_dispensaire.jpg"]
     }
   ],
-  "1870": [
+  "1900": [
     {
-      "name": "Proclamation de la IIIe République",
-      "category": "Gouvernance",
-      "subject": "politique",
-      "keywords": [
-        "république",
-        "France"
-      ],
-      "description": "Fin du Second Empire"
+      "name": "Campagne d’hygiène coloniale",
+      "description": "Lancement d’un programme d’éducation à l’hygiène.",
+      "start": 1900,
+      "end": 1905,
+      "category": ["Prévention", "Éducation"],
+      "subject": "Hygiène",
+      "keywords": ["hygiène", "colonisation"],
+      "sources": ["https://example.com/hygiene-1900"],
+      "attachments": []
     }
   ],
-  "1914": [
+  "1925": [
     {
-      "name": "Début de la Première Guerre mondiale",
-      "category": "Protection",
-      "subject": "guerre",
-      "keywords": [
-        "conflit",
-        "armée"
-      ],
-      "description": "Déclenchement de la Grande Guerre"
+      "name": "Construction de l’hôpital principal de Papeete",
+      "description": "Bâtiment modernisé, plus de 100 lits.",
+      "start": 1925,
+      "category": ["Infrastructure"],
+      "subject": "Accès aux soins",
+      "keywords": ["hôpital", "Papeete"],
+      "sources": [],
+      "attachments": ["plan_hopital.png"]
     }
   ],
-  "1918": [
+  "1942": [
     {
-      "name": "Armistice de la Première Guerre mondiale",
-      "category": "Protection",
-      "subject": "guerre",
-      "keywords": [
-        "victoire",
-        "armistice"
-      ],
-      "description": "Fin des combats en Europe"
-    }
-  ],
-  "1939": [
-    {
-      "name": "Début de la Seconde Guerre mondiale",
-      "category": "Protection",
-      "subject": "guerre",
-      "keywords": [
-        "conflit",
-        "armée"
-      ],
-      "description": "Invasion de la Pologne"
-    }
-  ],
-  "1945": [
-    {
-      "name": "Fin de la Seconde Guerre mondiale",
-      "category": "Protection",
-      "subject": "guerre",
-      "keywords": [
-        "victoire"
-      ],
-      "description": "Capitulation de l'Allemagne et du Japon"
-    }
-  ],
-  "1948": [
-    {
-      "name": "Déclaration universelle des droits de l'homme",
-      "category": "Gouvernance",
-      "subject": "société",
-      "keywords": [
-        "ONU",
-        "droits"
-      ],
-      "description": "Texte fondateur des droits humains"
+      "name": "Intervention médicale américaine",
+      "description": "Appui logistique sanitaire pendant la Seconde Guerre mondiale.",
+      "start": 1942,
+      "end": 1945,
+      "category": ["Histoire", "Collaboration internationale"],
+      "subject": "Logistique médicale",
+      "keywords": ["armée", "WWII"],
+      "sources": [],
+      "attachments": []
     }
   ],
   "1958": [
     {
-      "name": "Naissance de la Ve République",
-      "category": "Gouvernance",
-      "subject": "politique",
-      "keywords": [
-        "constitution",
-        "De Gaulle"
-      ],
-      "description": "Nouvelle constitution adoptée"
+      "name": "Vaccination généralisée contre la tuberculose",
+      "description": "Introduction du BCG.",
+      "start": 1958,
+      "category": ["Vaccination"],
+      "subject": "Maladies infectieuses",
+      "keywords": ["BCG", "tuberculose"],
+      "sources": ["https://www.bcg-pf.org"],
+      "attachments": []
     }
   ],
-  "1961": [
+  "1970": [
     {
-      "name": "Premier vol spatial habité",
-      "category": "Innovation",
-      "subject": "science",
-      "keywords": [
-        "espace",
-        "Gagarine"
-      ],
-      "description": "Yuri Gagarine premier homme dans l'espace"
+      "name": "Création du service de santé scolaire",
+      "description": "Suivi médical régulier pour les enfants en milieu scolaire.",
+      "start": 1970,
+      "end": 1973,
+      "category": ["Prévention", "Enfance"],
+      "subject": "Santé scolaire",
+      "keywords": ["enfants", "école", "dépistage"],
+      "sources": [],
+      "attachments": []
     }
   ],
-  "1969": [
+  "1984": [
     {
-      "name": "Homme sur la Lune",
-      "category": "Innovation",
-      "subject": "science",
-      "keywords": [
-        "NASA",
-        "Apollo 11"
-      ],
-      "description": "Neil Armstrong marche sur la Lune"
+      "name": "Lutte contre le VIH/SIDA",
+      "description": "Début des campagnes de sensibilisation au VIH.",
+      "start": 1984,
+      "end": 1995,
+      "category": ["Prévention", "Santé sexuelle"],
+      "subject": "VIH/SIDA",
+      "keywords": ["préservatif", "infection", "SIDA"],
+      "sources": ["https://vih-polynesie.org"],
+      "attachments": ["affiche_prevention.jpg"]
     }
   ],
-  "1981": [
+  "1990": [
     {
-      "name": "Abolition de la peine de mort en France",
-      "category": "Gouvernance",
-      "subject": "lois",
-      "keywords": [
-        "justice",
-        "droits"
-      ],
-      "description": "Suppression de la peine capitale"
+      "name": "Installation du service SAMU",
+      "description": "Mise en place des secours d’urgence médicale.",
+      "start": 1990,
+      "category": ["Urgence", "Infrastructure"],
+      "subject": "Urgence médicale",
+      "keywords": ["SAMU", "urgence"],
+      "sources": [],
+      "attachments": []
     }
   ],
-  "1989": [
+  "1999": [
     {
-      "name": "Chute du mur de Berlin",
-      "category": "Gouvernance",
-      "subject": "géopolitique",
-      "keywords": [
-        "Berlin",
-        "réunification"
-      ],
-      "description": "Fin symbolique de la guerre froide"
+      "name": "Épidémie de dengue",
+      "description": "Dengue de type 1 détectée à Tahiti.",
+      "start": 1999,
+      "end": 2000,
+      "category": ["Crise sanitaire", "Épidémiologie"],
+      "subject": "Maladies vectorielles",
+      "keywords": ["dengue", "moustiques"],
+      "sources": ["https://dengue-info.org"],
+      "attachments": ["rapport_dengue.pdf"]
     }
   ],
-  "1991": [
+  "2003": [
     {
-      "name": "Dissolution de l'URSS",
-      "category": "Gouvernance",
-      "subject": "géopolitique",
-      "keywords": [
-        "URSS",
-        "fin"
-      ],
-      "description": "Fin de l'Union soviétique"
+      "name": "Plan de santé mentale",
+      "description": "Améliorer la prise en charge psychiatrique.",
+      "start": 2003,
+      "end": 2006,
+      "category": ["Santé mentale"],
+      "subject": "Psychiatrie",
+      "keywords": ["psychose", "santé mentale"],
+      "sources": [],
+      "attachments": []
     }
   ],
-  "2001": [
+  "2009": [
     {
-      "name": "Attentats du 11 septembre",
-      "category": "Protection",
-      "subject": "sécurité",
-      "keywords": [
-        "terrorisme"
-      ],
-      "description": "Attaques aux États-Unis"
+      "name": "Grippe H1N1 en Polynésie",
+      "description": "Propagation rapide dans les îles principales.",
+      "start": 2009,
+      "category": ["Crise sanitaire"],
+      "subject": "Grippe",
+      "keywords": ["pandémie", "influenza"],
+      "sources": ["https://h1n1.pf"],
+      "attachments": []
     }
   ],
-  "2008": [
+  "2012": [
     {
-      "name": "Crise financière mondiale",
-      "category": "Données",
-      "subject": "économie",
-      "keywords": [
-        "banques",
-        "bourse"
-      ],
-      "description": "Effondrement des marchés financiers"
+      "name": "Création du Centre de prévention du diabète",
+      "description": "Prise en charge des patients diabétiques.",
+      "start": 2012,
+      "category": ["Prévention"],
+      "subject": "Diabète",
+      "keywords": ["glycémie", "suivi médical"],
+      "sources": [],
+      "attachments": ["brochure_diabete.pdf"]
     }
   ],
-  "2015": [
+  "2014": [
     {
-      "name": "Accords de Paris",
-      "category": "Protection",
-      "subject": "écologie",
-      "keywords": [
-        "climat",
-        "COP21"
-      ],
-      "description": "Engagement mondial contre le réchauffement"
+      "name": "Épidémie de Zika",
+      "description": "Cas déclarés en augmentation rapide.",
+      "start": 2014,
+      "end": 2015,
+      "category": ["Crise sanitaire", "Épidémiologie"],
+      "subject": "Zika",
+      "keywords": ["zika", "moustiques"],
+      "sources": ["https://zika-info.pf"],
+      "attachments": []
+    }
+  ],
+  "2016": [
+    {
+      "name": "Loi sur l’alcool",
+      "description": "Nouvelle réglementation pour les ventes d’alcool.",
+      "start": 2016,
+      "category": ["Santé publique"],
+      "subject": "Addictions",
+      "keywords": ["alcool", "loi"],
+      "sources": [],
+      "attachments": []
     }
   ],
   "2019": [
     {
-      "name": "Grève mondiale pour le climat",
-      "category": "Protection",
-      "subject": "écologie",
-      "keywords": [
-        "Greta Thunberg",
-        "climat"
-      ],
-      "description": "Mobilisation massive pour la planète"
+      "name": "Campagne anti-tabac",
+      "description": "Lancement du mois sans tabac.",
+      "start": 2019,
+      "category": ["Prévention", "Santé publique"],
+      "subject": "Tabagisme",
+      "keywords": ["cigarette", "affiche", "sensibilisation"],
+      "sources": [],
+      "attachments": ["poster_tabac.pdf"]
     }
   ],
-"2020": [
-  {
-    "name": "Pandémie de COVID-19",
-    "category": "Protection",
-    "subject": "santé",
-    "keywords": ["virus", "pandémie"],
-    "description": "Crise sanitaire mondiale"
-  },
-  {
-    "name": "Projet Climat 2020-2023",
-    "category": "Écologie",
-    "subject": "climat",
-    "keywords": ["COP", "environnement"],
-    "description": "Projet d'adaptation climatique régional.",
-    "start": "2020",
-    "end": "2023"
-  }
-],
-"2022": [
-  {
-    "name": "Plan Santé 2022-2025",
-    "category": "Protection",
-    "subject": "santé",
-    "keywords": ["prévention", "santé publique"],
-    "description": "Programme pluriannuel de prévention en santé publique.",
-    "start": "2022",
-    "end": "2025"
-  }
-]
+  "2020": [
+    {
+      "name": "COVID-19 en Polynésie",
+      "description": "Confinement, vaccination, mesures sanitaires.",
+      "start": 2020,
+      "end": 2022,
+      "category": ["Crise sanitaire", "Vaccination"],
+      "subject": "COVID-19",
+      "keywords": ["pandémie", "covid", "vaccination"],
+      "sources": ["https://covid.gov.pf"],
+      "attachments": ["plan_covid.pptx"]
+    }
+  ],
+  "2023": [
+    {
+      "name": "Création d’un réseau santé environnement",
+      "description": "Collaboration interdisciplinaire pour la santé environnementale.",
+      "start": 2023,
+      "category": ["Environnement", "Santé publique"],
+      "subject": "Santé environnementale",
+      "keywords": ["pollution", "climat", "réseau"],
+      "sources": [],
+      "attachments": []
+    }
+  ]
 }
