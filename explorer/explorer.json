@@ -1,239 +1,982 @@
 {
-  "1700": [
+  "1941": [
     {
-      "name": "Premières données de santé à Tahiti",
-      "description": "Recensement des maladies locales par les missionnaires européens.",
-      "start": 1700,
-      "end": 1702,
-      "category": ["Histoire", "Épidémiologie"],
-      "subject": "Maladies infectieuses",
-      "keywords": ["paludisme", "missionnaires"],
-      "sources": ["https://example.com/tahiti1700"],
-      "attachments": ["dossier_historique.pdf"]
-    }
-  ],
-  "1805": [
-    {
-      "name": "Épidémie de variole",
-      "description": "Vague épidémique ayant touché plusieurs archipels.",
-      "start": 1805,
-      "category": ["Crise sanitaire"],
-      "subject": "Vaccination",
-      "keywords": ["variole", "immunisation"],
-      "sources": ["https://archive.org/variole-1805"],
-      "attachments": []
-    }
-  ],
-  "1840": [
-    {
-      "name": "Création du premier dispensaire",
-      "description": "Mise en place d’un accès aux soins dans les Îles du Vent.",
-      "start": 1840,
-      "category": ["Infrastructure", "Accès aux soins"],
-      "subject": "Santé publique",
-      "keywords": ["dispensaire", "soins primaires"],
-      "sources": [],
-      "attachments": ["photo_dispensaire.jpg"]
-    }
-  ],
-  "1900": [
-    {
-      "name": "Campagne d’hygiène coloniale",
-      "description": "Lancement d’un programme d’éducation à l’hygiène.",
-      "start": 1900,
-      "end": 1905,
-      "category": ["Prévention", "Éducation"],
-      "subject": "Hygiène",
-      "keywords": ["hygiène", "colonisation"],
-      "sources": ["https://example.com/hygiene-1900"],
-      "attachments": []
-    }
-  ],
-  "1925": [
-    {
-      "name": "Construction de l’hôpital principal de Papeete",
-      "description": "Bâtiment modernisé, plus de 100 lits.",
-      "start": 1925,
-      "category": ["Infrastructure"],
+      "name": "Événement 1",
+      "category": [
+        "Données, surveillance et recherche",
+        "Contexte"
+      ],
       "subject": "Accès aux soins",
-      "keywords": ["hôpital", "Papeete"],
-      "sources": [],
-      "attachments": ["plan_hopital.png"]
+      "keywords": [
+        "Papeete",
+        "Formation",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 1 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-1",
+        "Rapport officiel 1"
+      ],
+      "start": 1941,
+      "end": 1941
     }
   ],
-  "1942": [
+  "1761": [
     {
-      "name": "Intervention médicale américaine",
-      "description": "Appui logistique sanitaire pendant la Seconde Guerre mondiale.",
-      "start": 1942,
-      "end": 1945,
-      "category": ["Histoire", "Collaboration internationale"],
-      "subject": "Logistique médicale",
-      "keywords": ["armée", "WWII"],
-      "sources": [],
-      "attachments": []
+      "name": "Événement 2",
+      "category": [
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Prévention",
+        "Papeete",
+        "Hôpital"
+      ],
+      "description": "Description de l'événement 2 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-2",
+        "Rapport officiel 2"
+      ],
+      "start": 1761,
+      "end": 1761
     }
   ],
-  "1958": [
+  "1979": [
     {
-      "name": "Vaccination généralisée contre la tuberculose",
-      "description": "Introduction du BCG.",
-      "start": 1958,
-      "category": ["Vaccination"],
-      "subject": "Maladies infectieuses",
-      "keywords": ["BCG", "tuberculose"],
-      "sources": ["https://www.bcg-pf.org"],
-      "attachments": []
+      "name": "Événement 3",
+      "category": [
+        "Données, surveillance et recherche",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "SAMU"
+      ],
+      "description": "Description de l'événement 3 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-3",
+        "Rapport officiel 3"
+      ],
+      "start": 1979,
+      "end": 1979
     }
   ],
-  "1970": [
+  "1777": [
     {
-      "name": "Création du service de santé scolaire",
-      "description": "Suivi médical régulier pour les enfants en milieu scolaire.",
-      "start": 1970,
-      "end": 1973,
-      "category": ["Prévention", "Enfance"],
-      "subject": "Santé scolaire",
-      "keywords": ["enfants", "école", "dépistage"],
-      "sources": [],
-      "attachments": []
+      "name": "Événement 4",
+      "category": [
+        "Données, surveillance et recherche",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Santé mentale",
+      "keywords": [
+        "Prévention",
+        "Papeete"
+      ],
+      "description": "Description de l'événement 4 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-4",
+        "Rapport officiel 4"
+      ],
+      "start": 1777,
+      "end": 1778
     }
   ],
-  "1984": [
+  "1778": [
     {
-      "name": "Lutte contre le VIH/SIDA",
-      "description": "Début des campagnes de sensibilisation au VIH.",
-      "start": 1984,
-      "end": 1995,
-      "category": ["Prévention", "Santé sexuelle"],
-      "subject": "VIH/SIDA",
-      "keywords": ["préservatif", "infection", "SIDA"],
-      "sources": ["https://vih-polynesie.org"],
-      "attachments": ["affiche_prevention.jpg"]
+      "name": "Événement 4",
+      "category": [
+        "Données, surveillance et recherche",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Santé mentale",
+      "keywords": [
+        "Prévention",
+        "Papeete"
+      ],
+      "description": "Description de l'événement 4 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-4",
+        "Rapport officiel 4"
+      ],
+      "start": 1777,
+      "end": 1778
+    },
+    {
+      "name": "Événement 14",
+      "category": [
+        "Contexte",
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Polynésie",
+        "Formation",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 14 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-14",
+        "Rapport officiel 14"
+      ],
+      "start": 1778,
+      "end": 1778
     }
   ],
-  "1990": [
+  "1933": [
     {
-      "name": "Installation du service SAMU",
-      "description": "Mise en place des secours d’urgence médicale.",
-      "start": 1990,
-      "category": ["Urgence", "Infrastructure"],
-      "subject": "Urgence médicale",
-      "keywords": ["SAMU", "urgence"],
-      "sources": [],
-      "attachments": []
+      "name": "Événement 5",
+      "category": [
+        "Accès aux services et aux moyens",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Environnement",
+      "keywords": [
+        "Papeete",
+        "Communication",
+        "Polynésie"
+      ],
+      "description": "Description de l'événement 5 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-5",
+        "Rapport officiel 5"
+      ],
+      "start": 1933,
+      "end": 1933
+    },
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
     }
   ],
-  "1999": [
+  "1709": [
     {
-      "name": "Épidémie de dengue",
-      "description": "Dengue de type 1 détectée à Tahiti.",
-      "start": 1999,
-      "end": 2000,
-      "category": ["Crise sanitaire", "Épidémiologie"],
-      "subject": "Maladies vectorielles",
-      "keywords": ["dengue", "moustiques"],
-      "sources": ["https://dengue-info.org"],
-      "attachments": ["rapport_dengue.pdf"]
+      "name": "Événement 6",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Hôpital",
+        "Communication",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 6 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-6",
+        "Rapport officiel 6"
+      ],
+      "start": 1709,
+      "end": 1709
     }
   ],
-  "2003": [
+  "1785": [
     {
-      "name": "Plan de santé mentale",
-      "description": "Améliorer la prise en charge psychiatrique.",
-      "start": 2003,
-      "end": 2006,
-      "category": ["Santé mentale"],
-      "subject": "Psychiatrie",
-      "keywords": ["psychose", "santé mentale"],
-      "sources": [],
-      "attachments": []
+      "name": "Événement 7",
+      "category": [
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Papeete"
+      ],
+      "description": "Description de l'événement 7 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-7",
+        "Rapport officiel 7"
+      ],
+      "start": 1785,
+      "end": 1785
     }
   ],
-  "2009": [
+  "1827": [
     {
-      "name": "Grippe H1N1 en Polynésie",
-      "description": "Propagation rapide dans les îles principales.",
-      "start": 2009,
-      "category": ["Crise sanitaire"],
-      "subject": "Grippe",
-      "keywords": ["pandémie", "influenza"],
-      "sources": ["https://h1n1.pf"],
-      "attachments": []
+      "name": "Événement 8",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 8 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-8",
+        "Rapport officiel 8"
+      ],
+      "start": 1827,
+      "end": 1829
     }
   ],
-  "2012": [
+  "1828": [
     {
-      "name": "Création du Centre de prévention du diabète",
-      "description": "Prise en charge des patients diabétiques.",
-      "start": 2012,
-      "category": ["Prévention"],
-      "subject": "Diabète",
-      "keywords": ["glycémie", "suivi médical"],
-      "sources": [],
-      "attachments": ["brochure_diabete.pdf"]
+      "name": "Événement 8",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 8 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-8",
+        "Rapport officiel 8"
+      ],
+      "start": 1827,
+      "end": 1829
     }
   ],
-  "2014": [
+  "1829": [
     {
-      "name": "Épidémie de Zika",
-      "description": "Cas déclarés en augmentation rapide.",
-      "start": 2014,
-      "end": 2015,
-      "category": ["Crise sanitaire", "Épidémiologie"],
-      "subject": "Zika",
-      "keywords": ["zika", "moustiques"],
-      "sources": ["https://zika-info.pf"],
-      "attachments": []
+      "name": "Événement 8",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 8 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-8",
+        "Rapport officiel 8"
+      ],
+      "start": 1827,
+      "end": 1829
     }
   ],
   "2016": [
     {
-      "name": "Loi sur l’alcool",
-      "description": "Nouvelle réglementation pour les ventes d’alcool.",
+      "name": "Événement 9",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Polynésie",
+        "Hôpital",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 9 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-9",
+        "Rapport officiel 9"
+      ],
       "start": 2016,
-      "category": ["Santé publique"],
-      "subject": "Addictions",
-      "keywords": ["alcool", "loi"],
-      "sources": [],
-      "attachments": []
+      "end": 2019
+    }
+  ],
+  "2017": [
+    {
+      "name": "Événement 9",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Polynésie",
+        "Hôpital",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 9 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-9",
+        "Rapport officiel 9"
+      ],
+      "start": 2016,
+      "end": 2019
+    }
+  ],
+  "2018": [
+    {
+      "name": "Événement 9",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Polynésie",
+        "Hôpital",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 9 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-9",
+        "Rapport officiel 9"
+      ],
+      "start": 2016,
+      "end": 2019
     }
   ],
   "2019": [
     {
-      "name": "Campagne anti-tabac",
-      "description": "Lancement du mois sans tabac.",
-      "start": 2019,
-      "category": ["Prévention", "Santé publique"],
-      "subject": "Tabagisme",
-      "keywords": ["cigarette", "affiche", "sensibilisation"],
-      "sources": [],
-      "attachments": ["poster_tabac.pdf"]
+      "name": "Événement 9",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Épidémies",
+      "keywords": [
+        "Polynésie",
+        "Hôpital",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 9 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-9",
+        "Rapport officiel 9"
+      ],
+      "start": 2016,
+      "end": 2019
     }
   ],
-  "2020": [
+  "1865": [
     {
-      "name": "COVID-19 en Polynésie",
-      "description": "Confinement, vaccination, mesures sanitaires.",
-      "start": 2020,
-      "end": 2022,
-      "category": ["Crise sanitaire", "Vaccination"],
-      "subject": "COVID-19",
-      "keywords": ["pandémie", "covid", "vaccination"],
-      "sources": ["https://covid.gov.pf"],
-      "attachments": ["plan_covid.pptx"]
+      "name": "Événement 10",
+      "category": [
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Papeete"
+      ],
+      "description": "Description de l'événement 10 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-10",
+        "Rapport officiel 10"
+      ],
+      "start": 1865,
+      "end": 1868
     }
   ],
-  "2023": [
+  "1866": [
     {
-      "name": "Création d’un réseau santé environnement",
-      "description": "Collaboration interdisciplinaire pour la santé environnementale.",
-      "start": 2023,
-      "category": ["Environnement", "Santé publique"],
-      "subject": "Santé environnementale",
-      "keywords": ["pollution", "climat", "réseau"],
-      "sources": [],
-      "attachments": []
+      "name": "Événement 10",
+      "category": [
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Papeete"
+      ],
+      "description": "Description de l'événement 10 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-10",
+        "Rapport officiel 10"
+      ],
+      "start": 1865,
+      "end": 1868
+    }
+  ],
+  "1867": [
+    {
+      "name": "Événement 10",
+      "category": [
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Papeete"
+      ],
+      "description": "Description de l'événement 10 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-10",
+        "Rapport officiel 10"
+      ],
+      "start": 1865,
+      "end": 1868
+    }
+  ],
+  "1868": [
+    {
+      "name": "Événement 10",
+      "category": [
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Papeete"
+      ],
+      "description": "Description de l'événement 10 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-10",
+        "Rapport officiel 10"
+      ],
+      "start": 1865,
+      "end": 1868
+    }
+  ],
+  "1767": [
+    {
+      "name": "Événement 11",
+      "category": [
+        "Protection sanitaire et gestion des risques",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Environnement",
+      "keywords": [
+        "Polynésie",
+        "SAMU",
+        "Hôpital"
+      ],
+      "description": "Description de l'événement 11 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-11",
+        "Rapport officiel 11"
+      ],
+      "start": 1767,
+      "end": 1767
+    }
+  ],
+  "1780": [
+    {
+      "name": "Événement 12",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Hôpital",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 12 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-12",
+        "Rapport officiel 12"
+      ],
+      "start": 1780,
+      "end": 1784
+    }
+  ],
+  "1781": [
+    {
+      "name": "Événement 12",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Hôpital",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 12 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-12",
+        "Rapport officiel 12"
+      ],
+      "start": 1780,
+      "end": 1784
+    }
+  ],
+  "1782": [
+    {
+      "name": "Événement 12",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Hôpital",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 12 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-12",
+        "Rapport officiel 12"
+      ],
+      "start": 1780,
+      "end": 1784
+    }
+  ],
+  "1783": [
+    {
+      "name": "Événement 12",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Hôpital",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 12 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-12",
+        "Rapport officiel 12"
+      ],
+      "start": 1780,
+      "end": 1784
+    }
+  ],
+  "1784": [
+    {
+      "name": "Événement 12",
+      "category": [
+        "Gouvernance et pilotage stratégique",
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Hôpital",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 12 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-12",
+        "Rapport officiel 12"
+      ],
+      "start": 1780,
+      "end": 1784
+    }
+  ],
+  "1753": [
+    {
+      "name": "Événement 13",
+      "category": [
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Polynésie"
+      ],
+      "description": "Description de l'événement 13 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-13",
+        "Rapport officiel 13"
+      ],
+      "start": 1753,
+      "end": 1756
+    }
+  ],
+  "1754": [
+    {
+      "name": "Événement 13",
+      "category": [
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Polynésie"
+      ],
+      "description": "Description de l'événement 13 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-13",
+        "Rapport officiel 13"
+      ],
+      "start": 1753,
+      "end": 1756
+    }
+  ],
+  "1755": [
+    {
+      "name": "Événement 13",
+      "category": [
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Polynésie"
+      ],
+      "description": "Description de l'événement 13 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-13",
+        "Rapport officiel 13"
+      ],
+      "start": 1753,
+      "end": 1756
+    }
+  ],
+  "1756": [
+    {
+      "name": "Événement 13",
+      "category": [
+        "Protection sanitaire et gestion des risques"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Polynésie"
+      ],
+      "description": "Description de l'événement 13 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-13",
+        "Rapport officiel 13"
+      ],
+      "start": 1753,
+      "end": 1756
+    }
+  ],
+  "1758": [
+    {
+      "name": "Événement 15",
+      "category": [
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Accès aux soins",
+      "keywords": [
+        "Papeete",
+        "Prévention"
+      ],
+      "description": "Description de l'événement 15 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-15",
+        "Rapport officiel 15"
+      ],
+      "start": 1758,
+      "end": 1758
+    }
+  ],
+  "1930": [
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
+    }
+  ],
+  "1931": [
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
+    }
+  ],
+  "1932": [
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
+    }
+  ],
+  "1934": [
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
+    }
+  ],
+  "1935": [
+    {
+      "name": "Événement 16",
+      "category": [
+        "Contexte",
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Formation"
+      ],
+      "description": "Description de l'événement 16 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-16",
+        "Rapport officiel 16"
+      ],
+      "start": 1930,
+      "end": 1935
+    }
+  ],
+  "1822": [
+    {
+      "name": "Événement 17",
+      "category": [
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Prévention",
+        "Papeete",
+        "Formation"
+      ],
+      "description": "Description de l'événement 17 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-17",
+        "Rapport officiel 17"
+      ],
+      "start": 1822,
+      "end": 1824
+    }
+  ],
+  "1823": [
+    {
+      "name": "Événement 17",
+      "category": [
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Prévention",
+        "Papeete",
+        "Formation"
+      ],
+      "description": "Description de l'événement 17 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-17",
+        "Rapport officiel 17"
+      ],
+      "start": 1822,
+      "end": 1824
+    }
+  ],
+  "1824": [
+    {
+      "name": "Événement 17",
+      "category": [
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Vaccination",
+      "keywords": [
+        "Prévention",
+        "Papeete",
+        "Formation"
+      ],
+      "description": "Description de l'événement 17 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-17",
+        "Rapport officiel 17"
+      ],
+      "start": 1822,
+      "end": 1824
+    }
+  ],
+  "1789": [
+    {
+      "name": "Événement 18",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 18 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-18",
+        "Rapport officiel 18"
+      ],
+      "start": 1789,
+      "end": 1792
+    }
+  ],
+  "1790": [
+    {
+      "name": "Événement 18",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 18 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-18",
+        "Rapport officiel 18"
+      ],
+      "start": 1789,
+      "end": 1792
+    }
+  ],
+  "1791": [
+    {
+      "name": "Événement 18",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 18 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-18",
+        "Rapport officiel 18"
+      ],
+      "start": 1789,
+      "end": 1792
+    }
+  ],
+  "1792": [
+    {
+      "name": "Événement 18",
+      "category": [
+        "Promotion de la santé et prévention",
+        "Données, surveillance et recherche"
+      ],
+      "subject": "Éducation",
+      "keywords": [
+        "Communication"
+      ],
+      "description": "Description de l'événement 18 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-18",
+        "Rapport officiel 18"
+      ],
+      "start": 1789,
+      "end": 1792
+    }
+  ],
+  "1915": [
+    {
+      "name": "Événement 19",
+      "category": [
+        "Gouvernance et pilotage stratégique"
+      ],
+      "subject": "Santé mentale",
+      "keywords": [
+        "Hôpital",
+        "Polynésie",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 19 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-19",
+        "Rapport officiel 19"
+      ],
+      "start": 1915,
+      "end": 1915
+    }
+  ],
+  "1870": [
+    {
+      "name": "Événement 20",
+      "category": [
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Environnement",
+      "keywords": [
+        "Polynésie",
+        "Prévention",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 20 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-20",
+        "Rapport officiel 20"
+      ],
+      "start": 1870,
+      "end": 1872
+    }
+  ],
+  "1871": [
+    {
+      "name": "Événement 20",
+      "category": [
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Environnement",
+      "keywords": [
+        "Polynésie",
+        "Prévention",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 20 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-20",
+        "Rapport officiel 20"
+      ],
+      "start": 1870,
+      "end": 1872
+    }
+  ],
+  "1872": [
+    {
+      "name": "Événement 20",
+      "category": [
+        "Promotion de la santé et prévention"
+      ],
+      "subject": "Environnement",
+      "keywords": [
+        "Polynésie",
+        "Prévention",
+        "SAMU"
+      ],
+      "description": "Description de l'événement 20 en lien avec la santé publique.",
+      "sources": [
+        "https://example.com/source-20",
+        "Rapport officiel 20"
+      ],
+      "start": 1870,
+      "end": 1872
     }
   ]
 }
