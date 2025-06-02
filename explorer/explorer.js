@@ -68,7 +68,7 @@ function expandMultiYearEvents(data) {
         if (!expanded[yStr].some(e => e.name === event.name)) {
   expanded[yStr].push({ ...event });
 }
-    });
+    };
   }
   return expanded;
 }
