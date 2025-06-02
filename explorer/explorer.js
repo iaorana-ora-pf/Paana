@@ -203,13 +203,13 @@ function updateTimeline() {
 function showDetails(ev, year) {
   currentEvents = collectFilteredEvents();
   currentIndex = currentEvents.findIndex(e => e.name === ev.name);
-  updateDetails(ev, year);
+  (ev, year);
 }
 
 function updateDetails(ev, year) {
   const container = document.getElementById("event-details-container");
 
-
+const isMulti = ev.start && ev.end && ev.start !== ev.end;
 const periodLabel = isMulti ? `Période : ${ev.start} - ${ev.end}` : `Année : ${year}`;
 
 const categoryIcon = getIconForCategory(ev.category);
