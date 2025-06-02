@@ -220,10 +220,7 @@ const formattedSources = (ev.sources || []).map(src =>
   src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src
 ).join("<br>");
 
-// Formatage des mots-clés avec icône
-const keywordsHTML = (ev.keywords || []).map(k =>
-  `<span class="color-box" title="${k}" style="background:${subjectColor}; margin-right:4px;"></span> ${k}`
-).join("<br>");
+const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
 container.innerHTML = `
   <h2>${ev.name}</h2>
