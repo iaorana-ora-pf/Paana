@@ -207,10 +207,7 @@ function updateTimeline() {
     <span>${ev.name}</span>
     ${isMultiYear ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}
   </li>`;
-    }).join("")}
-  </div>
-`;
-
+  
       
       container.appendChild(block);
     }
