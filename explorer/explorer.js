@@ -203,7 +203,7 @@ function updateTimeline() {
 function showDetails(ev, year) {
   currentEvents = collectFilteredEvents();
   currentIndex = currentEvents.findIndex(e => e.name === ev.name);
-  (ev, year);
+  updateDetails(ev, year); // ✅ C’est cette ligne qui manquait
 }
 
 function updateDetails(ev, year) {
