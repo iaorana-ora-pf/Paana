@@ -242,7 +242,7 @@ function updateDetails(ev, year) {
   const keywordsHTML = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
 
   container.innerHTML = `
-    <h2>${ev.name}</h2>
+    <h2 style="color:#007b7f; font-size: 1.8em;">${ev.name}</h2>
     <p><strong>${isMulti ? "Période" : "Année"} :</strong> ${isMulti ? `${ev.start} – ${ev.end}` : year}</p>
     <p><strong>Catégorie(s) :</strong><ul>${categoryHTML}</ul></p>
     <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" title="${ev.subject}" style="background:${subjectColor}; margin-left:6px;"></span></p>
