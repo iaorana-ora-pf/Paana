@@ -389,3 +389,26 @@ nav a:hover i {
 .nav-btn:hover {
   background-color: #fff3b0; /* bleu foncé au survol */
 }
+
+.event-arrows {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.event-arrows button {
+  font-size: 2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.event-arrows button:hover {
+  background-color: #0056b3;
+}
