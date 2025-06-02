@@ -1,6 +1,6 @@
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  padding: 20px 30px;font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9; 
   margin: 0; 
  overflow-y: auto;
@@ -16,6 +16,8 @@ body {
 
 main {
   flex: 1; /* pousse le footer vers le bas */
+  padding-left: 30px;
+  padding-right: 30px;
 }
 /* === HEADER GLOBAL === */
 header {
@@ -96,6 +98,7 @@ nav a:hover i {
 
 /* Titres principaux */
 h1 {
+  padding: 20px 30px;
   font-size: 2rem;
   color: #007b7f;         /* Bleu Paana */
   font-weight: bold;
