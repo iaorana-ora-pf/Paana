@@ -180,13 +180,13 @@ function initDropdowns() {
   document.getElementById("subjectDropdown").innerHTML =
   Array.from(subjects).map(s => {
     const color = getColorForSubject(s);
-    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline()">
       <span class="color-box" style="background:${color}; margin-right:6px;"></span> ${s}</label><br>`;
   }).join("");
 
 document.getElementById("keywordDropdown").innerHTML =
   Array.from(keywords).map(k => `
-    <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>
+    <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline()"> ${k}</label><br>
   `).join("");
 }
 
