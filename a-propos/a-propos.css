@@ -1,11 +1,27 @@
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background: #f9f9f9; 
   margin: 0; 
-  height: 100vh; 
-  overflow: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;        /* centre horizontalement */
+  padding: 20px;         /* espace intérieur */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
+main {
+  flex: 1; /* pousse le footer vers le bas */
+  padding-left: 30px;
+  padding-right: 30px;
+}
 /* === HEADER GLOBAL === */
 header {
   background-color: #007b7f;
@@ -83,15 +99,31 @@ nav a:hover i {
   color: #000;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+/* Titres principaux */
+h1 {
+  font-size: 2rem;
+  color: #007b7f;         /* Bleu Paana */
+  font-weight: bold;
+   text-decoration: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+}
 
-  nav {
-    width: 100%;
-    justify-content: flex-start;
-    margin-top: 1rem;
-  }
+/* Sous-titres */
+h2 {
+  font-size: 1.5rem;
+  color: #007b7f;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: 0,5rem;
+  text-decoration: underline;
+  text-decoration-color: #fff3b0; /* Jaune clair */
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+ul {
+  margin-top: 0rem;
+  margin-bottom: 0,5rem; /* tu peux ajuster si la liste est trop espacée en bas */
+}
+
