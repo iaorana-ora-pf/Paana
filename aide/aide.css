@@ -121,23 +121,6 @@ h2 {
   text-decoration-thickness: 3px;
   text-underline-offset: 6px;
 }
-/* Sous-sections */
-h3 {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  margin-top: 1.5rem;
-  margin-bottom: 0,5rem;
-}
-
-/* Titres internes ou éléments secondaires */
-h4 {
-  font-size: 1rem;
-  color: #555;
-  font-weight: normal;
-  margin-top: 1rem;
-  margin-bottom: 0rem;
-}
 
 ul {
   margin-top: 0rem;
