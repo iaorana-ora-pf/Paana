@@ -125,11 +125,12 @@ function updateTimeline() {
       container.appendChild(block);
     }
   }
- updateDependentFilters(filters);       // ✅ passe en paramètre
-  updateActiveFilterBadges(filters);     // ✅ passe en paramètre
+  updateDependentFilters();
+  updateActiveFilterBadges();
 }
 
-function updateDependentFilters(filters) {
+function updateDependentFilters() {
+  const filters = getFilters();
   const visibleSubjects = new Set();
   const visibleKeywords = new Set();
   const visibleCategories = new Set();
@@ -171,7 +172,7 @@ function initDropdowns() {
     fixedCategories.map(c => {
     const iconClass = getIconForCategory(c);
     return `<label>
-      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline() ">
+      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
       <i class="fas ${iconClass}" style="margin-right:6px;"></i> ${c}
     </label><br>`;
   }).join("");
@@ -179,13 +180,13 @@ function initDropdowns() {
   document.getElementById("subjectDropdown").innerHTML =
   Array.from(subjects).map(s => {
     const color = getColorForSubject(s);
-    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline()">
+    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
       <span class="color-box" style="background:${color}; margin-right:6px;"></span> ${s}</label><br>`;
   }).join("");
 
 document.getElementById("keywordDropdown").innerHTML =
   Array.from(keywords).map(k => `
-    <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline()"> ${k}</label><br>
+    <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>
   `).join("");
 }
 
@@ -242,7 +243,8 @@ function collectFilteredEvents() {
   );
 }
 
-function updateActiveFilterBadges(filters) {
+function updateActiveFilterBadges() {
+  const filters = getFilters();
   const container = document.getElementById("active-filters");
   const section = document.getElementById("active-filters-section");
   container.innerHTML = "";
