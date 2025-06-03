@@ -125,12 +125,12 @@ function updateTimeline() {
       container.appendChild(block);
     }
   }
-  updateDependentFilters();
-  updateActiveFilterBadges();
+ pdateDependentFilters(filters);       // ✅ passe en paramètre
+  updateActiveFilterBadges(filters);     // ✅ passe en paramètre
+}
 }
 
-function updateDependentFilters() {
-  const filters = getFilters();
+function updateDependentFilters(filters) {
   const visibleSubjects = new Set();
   const visibleKeywords = new Set();
   const visibleCategories = new Set();
@@ -243,8 +243,7 @@ function collectFilteredEvents() {
   );
 }
 
-function updateActiveFilterBadges() {
-  const filters = getFilters();
+function updateActiveFilterBadges(filters) {
   const container = document.getElementById("active-filters");
   const section = document.getElementById("active-filters-section");
   container.innerHTML = "";
