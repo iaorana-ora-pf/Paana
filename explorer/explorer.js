@@ -172,7 +172,7 @@ function initDropdowns() {
     fixedCategories.map(c => {
     const iconClass = getIconForCategory(c);
     return `<label>
-      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
+      <input type="checkbox" class="category-filter" value="${c}" onchange="updateTimeline() ">
       <i class="fas ${iconClass}" style="margin-right:6px;"></i> ${c}
     </label><br>`;
   }).join("");
