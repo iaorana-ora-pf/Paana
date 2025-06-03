@@ -23,29 +23,6 @@ const fixedCategoryIcons = {
   "Contexte": "fa-landmark"
 };
 
-const subjectColors = new Map();
-
-function generateColor() {
-  const hue = Math.floor(Math.random() * 360);
-  return `hsl(${hue}, 60%, 60%)`;
-}
-
-function getIconForCategory(cat) {
-  return fixedCategoryIcons[cat] || "fa-circle";
-}
-
-function getColorForSubject(subject) {
-  if (subjectColors.has(subject)) return subjectColors.get(subject);
-  const stored = localStorage.getItem("color-" + subject);
-  if (stored) {
-    subjectColors.set(subject, stored);
-    return stored;
-  }
-  const color = generateColor();
-  subjectColors.set(subject, color);
-  localStorage.setItem("color-" + subject, color);
-  return color;
-}
 
 fetch('./explorer.json')
   .then(r => r.json())
@@ -80,7 +57,6 @@ function getFilters() {
   const getChecked = cls => [...document.querySelectorAll('.' + cls + '-filter:checked')].map(e => e.value);
   return {
     categories: getChecked("category"),
-    subjects: getChecked("subject"),
     keywords: getChecked("keyword"),
     search: document.getElementById("searchInput").value.toLowerCase()
   };
@@ -94,14 +70,12 @@ function updateTimeline() {
   for (const year in events) {
     const filtered = events[year].filter(e =>
       (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(c => filters.categories.includes(c)) : filters.categories.includes(e.category))) &&
-      (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
-        e.name.toLowerCase().includes(filters.search) ||
-        (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
-        e.subject.toLowerCase().includes(filters.search) ||
-        e.keywords.some(k => k.toLowerCase().includes(filters.search))
-      ))
+  e.name.toLowerCase().includes(filters.search) ||
+  (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
+  e.keywords.some(k => k.toLowerCase().includes(filters.search))
+))
     );
 
     if (filtered.length) {
@@ -118,8 +92,7 @@ function updateTimeline() {
             const contextClass = isContext ? "context-event" : "";
             const iconHTML = (Array.isArray(ev.category) ? ev.category : [ev.category])
               .map(cat => `<i class="fas ${getIconForCategory(cat)}" title="${cat}" style="margin-right:4px;color:#007b7f"></i>`).join("");
-            const color = getColorForSubject(ev.subject);
-            return `<li class="${contextClass}" data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>${iconHTML}<span class="color-box" style="background:${color}" title="${ev.subject}"></span> <span>${ev.name}</span>${isMulti ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}</li>`;
+            return `<li class="${contextClass}" data-uid="${ev.name}-${year}" onclick='showDetails(window["${id}"], "${year}")'>${iconHTML}<span>${ev.name}</span>${isMulti ? `<span class="multi-year-badge">Pluriannuel</span>` : ""}</li>`;
           }).join("")}
         </div>`;
       container.appendChild(block);
@@ -131,25 +104,19 @@ function updateTimeline() {
 
 function updateDependentFilters() {
   const filters = getFilters();
-  const visibleSubjects = new Set();
   const visibleKeywords = new Set();
   const visibleCategories = new Set();
 
   Object.values(events).flat().forEach(ev => {
     const matchCat = !filters.categories.length || (Array.isArray(ev.category) ? ev.category.some(cat => filters.categories.includes(cat)) : filters.categories.includes(ev.category));
-    const matchSub = !filters.subjects.length || filters.subjects.includes(ev.subject);
     const matchKey = !filters.keywords.length || ev.keywords.some(k => filters.keywords.includes(k));
-    if (matchCat && matchSub && matchKey) {
-      visibleSubjects.add(ev.subject);
+    if (matchCat && matchKey) {
       ev.keywords.forEach(k => visibleKeywords.add(k));
       (Array.isArray(ev.category) ? ev.category : [ev.category]).forEach(cat => visibleCategories.add(cat));
     }
   });
 
-  document.querySelectorAll(".subject-filter").forEach(cb => {
-    cb.parentElement.style.color = visibleSubjects.has(cb.value) ? "black" : "#999";
-  });
-  document.querySelectorAll(".keyword-filter").forEach(cb => {
+    document.querySelectorAll(".keyword-filter").forEach(cb => {
     cb.parentElement.style.color = visibleKeywords.has(cb.value) ? "black" : "#999";
   });
   document.querySelectorAll(".category-filter").forEach(cb => {
@@ -158,12 +125,10 @@ function updateDependentFilters() {
 }
 
 function initDropdowns() {
-  const subjects = new Set();
   const keywords = new Set();
   const categories = new Set();
 
  Object.values(events).flat().forEach(e => {
-  subjects.add(e.subject);
   e.keywords.forEach(k => keywords.add(k));
   (Array.isArray(e.category) ? e.category : [e.category]).forEach(cat => categories.add(cat));
 });
@@ -177,13 +142,6 @@ function initDropdowns() {
     </label><br>`;
   }).join("");
 
-  document.getElementById("subjectDropdown").innerHTML =
-  Array.from(subjects).map(s => {
-    const color = getColorForSubject(s);
-    return `<label><input type="checkbox" class="subject-filter" value="${s}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()">
-      <span class="color-box" style="background:${color}; margin-right:6px;"></span> ${s}</label><br>`;
-  }).join("");
-
 document.getElementById("keywordDropdown").innerHTML =
   Array.from(keywords).map(k => `
     <label><input type="checkbox" class="keyword-filter" value="${k}" onchange="updateTimeline(); updateDependentFilters(); updateActiveFilterBadges()"> ${k}</label><br>
@@ -195,7 +153,6 @@ function showDetails(ev, year) {
   currentIndex = currentEvents.findIndex(e => e.name === ev.name);
   const container = document.getElementById("event-details-container");
   const isMulti = ev.start && ev.end && ev.start !== ev.end;
-  const subjectColor = getColorForSubject(ev.subject);
   const catList = (Array.isArray(ev.category) ? ev.category : [ev.category]).map(cat => `<li><i class="fas ${getIconForCategory(cat)}"></i> ${cat}</li>`).join("");
   const sourceList = (ev.sources || []).map(src => src.startsWith("http") ? `<a href="${src}" target="_blank">${src}</a>` : src).join("<br>");
   const keywordList = (ev.keywords || []).map(k => `• ${k}`).join("<br>");
@@ -209,7 +166,6 @@ function showDetails(ev, year) {
     ${catList}
   </ul>
 </div>
-    <p><strong>Sujet :</strong> ${ev.subject} <span class="color-box" style="background:${subjectColor}"></span></p>
     <p><strong>Mots-clés :</strong><br>${keywordList}</p>
     <p><strong>Description :</strong><br>${ev.description || "N/A"}</p>
     <p><strong>Source(s) :</strong><br>${sourceList || "N/A"}</p>`;
@@ -231,12 +187,9 @@ function collectFilteredEvents() {
   return Object.entries(events).flatMap(([year, list]) =>
     list.filter(e =>
       (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(cat => filters.categories.includes(cat)) : filters.categories.includes(e.category))) &&
-      (!filters.subjects.length || filters.subjects.includes(e.subject)) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
-        e.name.toLowerCase().includes(filters.search) ||
         (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
-        e.subject.toLowerCase().includes(filters.search) ||
         e.keywords.some(k => k.toLowerCase().includes(filters.search))
       ))
     )
@@ -250,7 +203,6 @@ function updateActiveFilterBadges() {
   container.innerHTML = "";
   const all = [
     ...filters.categories.map(c => ({ type: "category", value: c })),
-    ...filters.subjects.map(s => ({ type: "subject", value: s })),
     ...filters.keywords.map(k => ({ type: "keyword", value: k }))
   ];
   if (all.length === 0) {
@@ -261,7 +213,7 @@ function updateActiveFilterBadges() {
   all.forEach(({ type, value }) => {
     const badge = document.createElement("span");
     badge.className = "filter-badge";
-    badge.innerHTML = `${type === "category" ? "Catégorie" : type === "subject" ? "Sujet" : "Mot-clé"} : ${value} <span class="remove-badge" data-type="${type}" data-value="${value}">&times;</span>`;
+    badge.innerHTML = `${type === "category" ? "Catégorie" : "Mot-clé"} : ${value} <span class="remove-badge" data-type="${type}" data-value="${value}">&times;</span>`;
     container.appendChild(badge);
   });
   document.querySelectorAll(".remove-badge").forEach(span => {
