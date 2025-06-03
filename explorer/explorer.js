@@ -128,7 +128,6 @@ function updateTimeline() {
  updateDependentFilters(filters);       // ✅ passe en paramètre
   updateActiveFilterBadges(filters);     // ✅ passe en paramètre
 }
-}
 
 function updateDependentFilters(filters) {
   const visibleSubjects = new Set();
