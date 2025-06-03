@@ -8,12 +8,6 @@ body {
   flex-direction: column;
 }
 
-.page-container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 main {
   flex: 1; /* pousse le footer vers le bas */
 }
