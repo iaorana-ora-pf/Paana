@@ -6,8 +6,7 @@
         "Données, surveillance et recherche",
         "Contexte"
       ],
-      "subject": "Accès aux soins",
-      "keywords": [
+        "keywords": [
         "Papeete",
         "Formation",
         "SAMU"
@@ -27,8 +26,7 @@
       "category": [
         "Promotion de la santé et prévention"
       ],
-      "subject": "Vaccination",
-      "keywords": [
+         "keywords": [
         "Prévention",
         "Papeete",
         "Hôpital"
@@ -49,8 +47,7 @@
         "Données, surveillance et recherche",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Vaccination",
-      "keywords": [
+            "keywords": [
         "SAMU"
       ],
       "description": "Description de l'événement 3 en lien avec la santé publique.",
@@ -69,8 +66,7 @@
         "Données, surveillance et recherche",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Santé mentale",
-      "keywords": [
+         "keywords": [
         "Prévention",
         "Papeete"
       ],
@@ -90,7 +86,6 @@
         "Données, surveillance et recherche",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Santé mentale",
       "keywords": [
         "Prévention",
         "Papeete"
@@ -109,8 +104,7 @@
         "Contexte",
         "Promotion de la santé et prévention"
       ],
-      "subject": "Éducation",
-      "keywords": [
+          "keywords": [
         "Polynésie",
         "Formation",
         "Prévention"
@@ -131,8 +125,7 @@
         "Accès aux services et aux moyens",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Environnement",
-      "keywords": [
+           "keywords": [
         "Papeete",
         "Communication",
         "Polynésie"
@@ -151,8 +144,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
-      "keywords": [
+          "keywords": [
         "Formation"
       ],
       "description": "Description de l'événement 16 en lien avec la santé publique.",
@@ -171,8 +163,7 @@
         "Promotion de la santé et prévention",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Accès aux soins",
-      "keywords": [
+           "keywords": [
         "Hôpital",
         "Communication",
         "Prévention"
@@ -192,8 +183,7 @@
       "category": [
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Vaccination",
-      "keywords": [
+           "keywords": [
         "Papeete"
       ],
       "description": "Description de l'événement 7 en lien avec la santé publique.",
@@ -212,8 +202,7 @@
         "Promotion de la santé et prévention",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Épidémies",
-      "keywords": [
+           "keywords": [
         "Communication"
       ],
       "description": "Description de l'événement 8 en lien avec la santé publique.",
@@ -232,8 +221,7 @@
         "Promotion de la santé et prévention",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Épidémies",
-      "keywords": [
+         "keywords": [
         "Communication"
       ],
       "description": "Description de l'événement 8 en lien avec la santé publique.",
@@ -252,8 +240,7 @@
         "Promotion de la santé et prévention",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Épidémies",
-      "keywords": [
+           "keywords": [
         "Communication"
       ],
       "description": "Description de l'événement 8 en lien avec la santé publique.",
@@ -272,8 +259,7 @@
         "Gouvernance et pilotage stratégique",
         "Promotion de la santé et prévention"
       ],
-      "subject": "Épidémies",
-      "keywords": [
+           "keywords": [
         "Polynésie",
         "Hôpital",
         "SAMU"
@@ -294,8 +280,7 @@
         "Gouvernance et pilotage stratégique",
         "Promotion de la santé et prévention"
       ],
-      "subject": "Épidémies",
-      "keywords": [
+     "keywords": [
         "Polynésie",
         "Hôpital",
         "SAMU"
@@ -316,7 +301,7 @@
         "Gouvernance et pilotage stratégique",
         "Promotion de la santé et prévention"
       ],
-      "subject": "Épidémies",
+  
       "keywords": [
         "Polynésie",
         "Hôpital",
@@ -338,7 +323,7 @@
         "Gouvernance et pilotage stratégique",
         "Promotion de la santé et prévention"
       ],
-      "subject": "Épidémies",
+    
       "keywords": [
         "Polynésie",
         "Hôpital",
@@ -359,7 +344,7 @@
       "category": [
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+     
       "keywords": [
         "Papeete"
       ],
@@ -378,7 +363,7 @@
       "category": [
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+     
       "keywords": [
         "Papeete"
       ],
@@ -397,7 +382,7 @@
       "category": [
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+   
       "keywords": [
         "Papeete"
       ],
@@ -415,9 +400,7 @@
       "name": "Événement 10",
       "category": [
         "Données, surveillance et recherche"
-      ],
-      "subject": "Éducation",
-      "keywords": [
+      ],    "keywords": [
         "Papeete"
       ],
       "description": "Description de l'événement 10 en lien avec la santé publique.",
@@ -436,7 +419,7 @@
         "Protection sanitaire et gestion des risques",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Environnement",
+   
       "keywords": [
         "Polynésie",
         "SAMU",
@@ -458,7 +441,7 @@
         "Gouvernance et pilotage stratégique",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Éducation",
+   
       "keywords": [
         "Hôpital",
         "Prévention"
@@ -479,7 +462,7 @@
         "Gouvernance et pilotage stratégique",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Éducation",
+    
       "keywords": [
         "Hôpital",
         "Prévention"
@@ -500,7 +483,7 @@
         "Gouvernance et pilotage stratégique",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Éducation",
+   
       "keywords": [
         "Hôpital",
         "Prévention"
@@ -521,7 +504,7 @@
         "Gouvernance et pilotage stratégique",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Éducation",
+      
       "keywords": [
         "Hôpital",
         "Prévention"
@@ -542,7 +525,7 @@
         "Gouvernance et pilotage stratégique",
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Éducation",
+    
       "keywords": [
         "Hôpital",
         "Prévention"
@@ -562,7 +545,7 @@
       "category": [
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Accès aux soins",
+     
       "keywords": [
         "Polynésie"
       ],
@@ -581,7 +564,7 @@
       "category": [
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Accès aux soins",
+     
       "keywords": [
         "Polynésie"
       ],
@@ -600,7 +583,7 @@
       "category": [
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Accès aux soins",
+      
       "keywords": [
         "Polynésie"
       ],
@@ -619,7 +602,7 @@
       "category": [
         "Protection sanitaire et gestion des risques"
       ],
-      "subject": "Accès aux soins",
+     
       "keywords": [
         "Polynésie"
       ],
@@ -638,7 +621,7 @@
       "category": [
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Accès aux soins",
+    
       "keywords": [
         "Papeete",
         "Prévention"
@@ -659,7 +642,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+     
       "keywords": [
         "Formation"
       ],
@@ -679,7 +662,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+      
       "keywords": [
         "Formation"
       ],
@@ -699,7 +682,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+    
       "keywords": [
         "Formation"
       ],
@@ -719,7 +702,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+     
       "keywords": [
         "Formation"
       ],
@@ -739,8 +722,7 @@
         "Contexte",
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
-      "keywords": [
+           "keywords": [
         "Formation"
       ],
       "description": "Description de l'événement 16 en lien avec la santé publique.",
@@ -758,7 +740,7 @@
       "category": [
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+    
       "keywords": [
         "Prévention",
         "Papeete",
@@ -779,7 +761,7 @@
       "category": [
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+     
       "keywords": [
         "Prévention",
         "Papeete",
@@ -800,7 +782,7 @@
       "category": [
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Vaccination",
+     
       "keywords": [
         "Prévention",
         "Papeete",
@@ -822,7 +804,7 @@
         "Promotion de la santé et prévention",
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+     
       "keywords": [
         "Communication"
       ],
@@ -842,7 +824,7 @@
         "Promotion de la santé et prévention",
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+    
       "keywords": [
         "Communication"
       ],
@@ -862,7 +844,7 @@
         "Promotion de la santé et prévention",
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+    
       "keywords": [
         "Communication"
       ],
@@ -882,7 +864,7 @@
         "Promotion de la santé et prévention",
         "Données, surveillance et recherche"
       ],
-      "subject": "Éducation",
+      
       "keywords": [
         "Communication"
       ],
@@ -901,7 +883,7 @@
       "category": [
         "Gouvernance et pilotage stratégique"
       ],
-      "subject": "Santé mentale",
+     
       "keywords": [
         "Hôpital",
         "Polynésie",
@@ -922,7 +904,7 @@
       "category": [
         "Promotion de la santé et prévention"
       ],
-      "subject": "Environnement",
+     
       "keywords": [
         "Polynésie",
         "Prévention",
@@ -943,7 +925,7 @@
       "category": [
         "Promotion de la santé et prévention"
       ],
-      "subject": "Environnement",
+     
       "keywords": [
         "Polynésie",
         "Prévention",
@@ -964,7 +946,7 @@
       "category": [
         "Promotion de la santé et prévention"
       ],
-      "subject": "Environnement",
+     
       "keywords": [
         "Polynésie",
         "Prévention",
