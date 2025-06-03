@@ -125,7 +125,7 @@ function updateTimeline() {
       container.appendChild(block);
     }
   }
- pdateDependentFilters(filters);       // ✅ passe en paramètre
+ updateDependentFilters(filters);       // ✅ passe en paramètre
   updateActiveFilterBadges(filters);     // ✅ passe en paramètre
 }
 }
