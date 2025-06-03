@@ -344,6 +344,12 @@ nav a:hover i {
   grid-template-columns: 1fr 1fr; /* ✅ 2 colonnes */
   gap: 8px;
   margin-top: 10px;
+  max-height: 400px; /* ou 50vh, ajustable */
+  overflow-y: auto;
+  padding-right: 10px; /* pour la scrollbar */
+border: 1px solid #ddd;
+  background-color: #fafafa;
+  border-radius: 6px;
 }
 
 .event-item {
@@ -364,6 +370,11 @@ nav a:hover i {
   .event-grid {
     grid-template-columns: 1fr; /* ✅ 1 colonne sur mobile */
   }
+  @media (max-width: 768px) {
+  .event-grid {
+    max-height: 300px;
+  }
+}
 }
 .selected-event {
   background: #fff59d !important; /* Jaune clair */
