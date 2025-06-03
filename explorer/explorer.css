@@ -343,14 +343,7 @@ nav a:hover i {
   display: grid;
   grid-template-columns: 1fr 1fr; /* ✅ 2 colonnes */
   gap: 8px;
-  margin-top: 10px;
-  max-height: 400px; /* ou 50vh, ajustable */
-  overflow-y: auto;
-  padding-right: 10px; /* pour la scrollbar */
-border: 1px solid #ddd;
-  background-color: #fafafa;
-  border-radius: 6px;
-}
+ }
 
 .event-item {
   background: #e0e0e0;
