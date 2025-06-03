@@ -23,6 +23,9 @@ const fixedCategoryIcons = {
   "Contexte": "fa-landmark"
 };
 
+function getIconForCategory(cat) {
+  return fixedCategoryIcons[cat] || "fa-circle";
+}
 
 fetch('./explorer.json')
   .then(r => r.json())
