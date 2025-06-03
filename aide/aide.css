@@ -115,7 +115,7 @@ h2 {
   color: #007b7f;
   font-weight: bold;
   margin-top: 2rem;
-  margin-bottom: 0,5rem;
+  margin-bottom: 0.5rem;
   text-decoration: underline;
   text-decoration-color: #fff3b0; /* Jaune clair */
   text-decoration-thickness: 3px;
@@ -124,6 +124,6 @@ h2 {
 
 ul {
   margin-top: 0rem;
-  margin-bottom: 0,5rem; /* tu peux ajuster si la liste est trop espacée en bas */
+  margin-bottom: 0.5rem; /* tu peux ajuster si la liste est trop espacée en bas */
 }
 
