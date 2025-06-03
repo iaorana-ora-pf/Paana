@@ -75,9 +75,12 @@ function updateTimeline() {
       (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(c => filters.categories.includes(c)) : filters.categories.includes(e.category))) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
-  e.name.toLowerCase().includes(filters.search) ||
+  e.name?.toLowerCase().includes(filters.search) ||
+  e.description?.toLowerCase().includes(filters.search) ||
+  (Array.isArray(e.keywords) && e.keywords.some(k => k.toLowerCase().includes(filters.search))) ||
+  (Array.isArray(e.sources) && e.sources.some(s => s.toLowerCase().includes(filters.search))) ||
   (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
-  e.keywords.some(k => k.toLowerCase().includes(filters.search))
+  `${e.start}`.includes(filters.search) || `${e.end}`.includes(filters.search)
 ))
     );
 
@@ -192,9 +195,13 @@ function collectFilteredEvents() {
       (!filters.categories.length || (Array.isArray(e.category) ? e.category.some(cat => filters.categories.includes(cat)) : filters.categories.includes(e.category))) &&
       (!filters.keywords.length || filters.keywords.some(k => e.keywords.includes(k))) &&
       (!filters.search || (
-        (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
-        e.keywords.some(k => k.toLowerCase().includes(filters.search))
-      ))
+  e.name?.toLowerCase().includes(filters.search) ||
+  e.description?.toLowerCase().includes(filters.search) ||
+  (Array.isArray(e.keywords) && e.keywords.some(k => k.toLowerCase().includes(filters.search))) ||
+  (Array.isArray(e.sources) && e.sources.some(s => s.toLowerCase().includes(filters.search))) ||
+  (Array.isArray(e.category) ? e.category.join(',').toLowerCase() : e.category.toLowerCase()).includes(filters.search) ||
+  `${e.start}`.includes(filters.search) || `${e.end}`.includes(filters.search)
+))
     )
   );
 }
